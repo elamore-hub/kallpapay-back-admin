@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.6.xsd">
+    <!--
+        Added the constraints for entity SupportingDocument.
+    -->
+    <changeSet id="20220621092346-2" author="jhipster">
+
+        <addForeignKeyConstraint baseColumnNames="account_holder_id"
+                                 baseTableName="supporting_document"
+                                 constraintName="fk_supporting_document__account_holder_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="account_holder"/>
+
+        <addForeignKeyConstraint baseColumnNames="onboarding_id"
+                                 baseTableName="supporting_document"
+                                 constraintName="fk_supporting_document__onboarding_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="onboarding"/>
+    </changeSet>
+</databaseChangeLog>

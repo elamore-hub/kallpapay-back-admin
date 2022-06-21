@@ -1,0 +1,64 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <div *ngIf="bankAccount">
+      <h2 data-cy="bankAccountDetailsHeading"><span jhiTranslate="kallpapayApp.bankAccount.detail.title">Bank Account</span></h2>
+
+      <hr />
+
+      <jhi-alert-error></jhi-alert-error>
+
+      <jhi-alert></jhi-alert>
+
+      <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="global.field.id">ID</span></dt>
+        <dd>
+          <span>{{ bankAccount.id }}</span>
+        </dd>
+        <dt><span jhiTranslate="kallpapayApp.bankAccount.externalId">External Id</span></dt>
+        <dd>
+          <span>{{ bankAccount.externalId }}</span>
+        </dd>
+        <dt><span jhiTranslate="kallpapayApp.bankAccount.number">Number</span></dt>
+        <dd>
+          <span>{{ bankAccount.number }}</span>
+        </dd>
+        <dt><span jhiTranslate="kallpapayApp.bankAccount.name">Name</span></dt>
+        <dd>
+          <span>{{ bankAccount.name }}</span>
+        </dd>
+        <dt><span jhiTranslate="kallpapayApp.bankAccount.currency">Currency</span></dt>
+        <dd>
+          <span>{{ bankAccount.currency }}</span>
+        </dd>
+        <dt><span jhiTranslate="kallpapayApp.bankAccount.status">Status</span></dt>
+        <dd>
+          <span>{{ bankAccount.status }}</span>
+        </dd>
+        <dt><span jhiTranslate="kallpapayApp.bankAccount.language">Language</span></dt>
+        <dd>
+          <span>{{ bankAccount.language }}</span>
+        </dd>
+        <dt><span jhiTranslate="kallpapayApp.bankAccount.balances">Balances</span></dt>
+        <dd>
+          <div *ngIf="bankAccount.balances">
+            <a [routerLink]="['/account-balances', bankAccount.balances?.id, 'view']">{{ bankAccount.balances?.id }}</a>
+          </div>
+        </dd>
+        <dt><span jhiTranslate="kallpapayApp.bankAccount.accountHolder">Account Holder</span></dt>
+        <dd>
+          <div *ngIf="bankAccount.accountHolder">
+            <a [routerLink]="['/account-holder', bankAccount.accountHolder?.id, 'view']">{{ bankAccount.accountHolder?.id }}</a>
+          </div>
+        </dd>
+      </dl>
+
+      <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+        <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+      </button>
+
+      <button type="button" [routerLink]="['/bank-account', bankAccount.id, 'edit']" class="btn btn-primary">
+        <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+      </button>
+    </div>
+  </div>
+</div>

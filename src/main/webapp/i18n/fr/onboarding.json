@@ -1,0 +1,36 @@
+{
+  "kallpapayApp": {
+    "onboarding": {
+      "home": {
+        "title": "Onboardings",
+        "refreshListLabel": "Actualiser la liste",
+        "createLabel": "Créer un nouveau Onboarding",
+        "createOrEditLabel": "Créer ou éditer un Onboarding",
+        "notFound": "Aucun Onboarding trouvé"
+      },
+      "created": "Un nouveau Onboarding a été créé avec l'identifiant {{ param }}",
+      "updated": "Le Onboarding avec l'identifiant {{ param }} a été mis à jour",
+      "deleted": "Le Onboarding avec l'identifiant {{ param }} a été supprimé",
+      "delete": {
+        "question": "Êtes-vous certain de vouloir supprimer le Onboarding {{ id }} ?"
+      },
+      "detail": {
+        "title": "Onboarding"
+      },
+      "id": "ID",
+      "externalId": "External Id",
+      "accountName": "Account Name",
+      "email": "Email",
+      "language": "Language",
+      "accountHolderType": "Account Holder Type",
+      "onboardingUrl": "Onboarding Url",
+      "onboardingState": "Onboarding State",
+      "redirectUrl": "Redirect Url",
+      "status": "Status",
+      "tcuUrl": "Tcu Url",
+      "accountHolder": "Account Holder",
+      "oAuthRedirectParameters": "O Auth Redirect Parameters",
+      "supportingDocument": "Supporting Document"
+    }
+  }
+}

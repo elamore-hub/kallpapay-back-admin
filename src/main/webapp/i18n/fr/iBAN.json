@@ -1,0 +1,29 @@
+{
+  "kallpapayApp": {
+    "iBAN": {
+      "home": {
+        "title": "IBANS",
+        "refreshListLabel": "Actualiser la liste",
+        "createLabel": "Créer un nouveau IBAN",
+        "createOrEditLabel": "Créer ou éditer un IBAN",
+        "notFound": "Aucun IBAN trouvé"
+      },
+      "created": "Un nouveau IBAN a été créé avec l'identifiant {{ param }}",
+      "updated": "Le IBAN avec l'identifiant {{ param }} a été mis à jour",
+      "deleted": "Le IBAN avec l'identifiant {{ param }} a été supprimé",
+      "delete": {
+        "question": "Êtes-vous certain de vouloir supprimer le IBAN {{ id }} ?"
+      },
+      "detail": {
+        "title": "IBAN"
+      },
+      "id": "ID",
+      "name": "Name",
+      "iban": "Iban",
+      "bic": "Bic",
+      "accountOwner": "Account Owner",
+      "transaction": "Transaction",
+      "bankAccount": "Bank Account"
+    }
+  }
+}

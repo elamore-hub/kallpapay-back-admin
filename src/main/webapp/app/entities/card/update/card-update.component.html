@@ -1,0 +1,132 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+      <h2 id="jhi-card-heading" data-cy="CardCreateUpdateHeading" jhiTranslate="kallpapayApp.card.home.createOrEditLabel">
+        Create or edit a Card
+      </h2>
+
+      <div>
+        <jhi-alert-error></jhi-alert-error>
+
+        <div class="row mb-3" [hidden]="editForm.get('id')!.value == null">
+          <label class="form-label" jhiTranslate="global.field.id" for="field_id">ID</label>
+          <input type="number" class="form-control" name="id" id="field_id" data-cy="id" formControlName="id" [readonly]="true" />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="kallpapayApp.card.externalId" for="field_externalId">External Id</label>
+          <input
+            type="text"
+            class="form-control"
+            name="externalId"
+            id="field_externalId"
+            data-cy="externalId"
+            formControlName="externalId"
+          />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="kallpapayApp.card.type" for="field_type">Type</label>
+          <input type="text" class="form-control" name="type" id="field_type" data-cy="type" formControlName="type" />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="kallpapayApp.card.mainCurrency" for="field_mainCurrency">Main Currency</label>
+          <input
+            type="text"
+            class="form-control"
+            name="mainCurrency"
+            id="field_mainCurrency"
+            data-cy="mainCurrency"
+            formControlName="mainCurrency"
+          />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="kallpapayApp.card.cardDesignUrl" for="field_cardDesignUrl">Card Design Url</label>
+          <input
+            type="text"
+            class="form-control"
+            name="cardDesignUrl"
+            id="field_cardDesignUrl"
+            data-cy="cardDesignUrl"
+            formControlName="cardDesignUrl"
+          />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="kallpapayApp.card.cardUrl" for="field_cardUrl">Card Url</label>
+          <input type="text" class="form-control" name="cardUrl" id="field_cardUrl" data-cy="cardUrl" formControlName="cardUrl" />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="kallpapayApp.card.status" for="field_status">Status</label>
+          <input type="text" class="form-control" name="status" id="field_status" data-cy="status" formControlName="status" />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="kallpapayApp.card.expiryDate" for="field_expiryDate">Expiry Date</label>
+          <div class="input-group">
+            <input
+              id="field_expiryDate"
+              data-cy="expiryDate"
+              type="text"
+              class="form-control"
+              name="expiryDate"
+              ngbDatepicker
+              #expiryDateDp="ngbDatepicker"
+              formControlName="expiryDate"
+            />
+            <button type="button" class="btn btn-secondary" (click)="expiryDateDp.toggle()"><fa-icon icon="calendar-alt"></fa-icon></button>
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="kallpapayApp.card.name" for="field_name">Name</label>
+          <input type="text" class="form-control" name="name" id="field_name" data-cy="name" formControlName="name" />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="kallpapayApp.card.accountMembership" for="field_accountMembership"
+            >Account Membership</label
+          >
+          <select
+            class="form-control"
+            id="field_accountMembership"
+            data-cy="accountMembership"
+            name="accountMembership"
+            formControlName="accountMembership"
+          >
+            <option [ngValue]="null"></option>
+            <option
+              [ngValue]="
+                accountMembershipOption.id === editForm.get('accountMembership')!.value?.id
+                  ? editForm.get('accountMembership')!.value
+                  : accountMembershipOption
+              "
+              *ngFor="let accountMembershipOption of accountMembershipsSharedCollection; trackBy: trackAccountMembershipById"
+            >
+              {{ accountMembershipOption.id }}
+            </option>
+          </select>
+        </div>
+      </div>
+
+      <div>
+        <button type="button" id="cancel-save" data-cy="entityCreateCancelButton" class="btn btn-secondary" (click)="previousState()">
+          <fa-icon icon="ban"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+        </button>
+
+        <button
+          type="submit"
+          id="save-entity"
+          data-cy="entityCreateSaveButton"
+          [disabled]="editForm.invalid || isSaving"
+          class="btn btn-primary"
+        >
+          <fa-icon icon="save"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+        </button>
+      </div>
+    </form>
+  </div>
+</div>

@@ -1,0 +1,110 @@
+<div>
+  <h2 id="page-heading" data-cy="OnboardingHeading">
+    <span jhiTranslate="kallpapayApp.onboarding.home.title">Onboardings</span>
+
+    <div class="d-flex justify-content-end">
+      <button class="btn btn-info me-2" (click)="loadAll()" [disabled]="isLoading">
+        <fa-icon icon="sync" [spin]="isLoading"></fa-icon>
+        <span jhiTranslate="kallpapayApp.onboarding.home.refreshListLabel">Refresh List</span>
+      </button>
+
+      <button
+        id="jh-create-entity"
+        data-cy="entityCreateButton"
+        class="btn btn-primary jh-create-entity create-onboarding"
+        [routerLink]="['/onboarding/new']"
+      >
+        <fa-icon icon="plus"></fa-icon>
+        <span jhiTranslate="kallpapayApp.onboarding.home.createLabel"> Create a new Onboarding </span>
+      </button>
+    </div>
+  </h2>
+
+  <jhi-alert-error></jhi-alert-error>
+
+  <jhi-alert></jhi-alert>
+
+  <div class="alert alert-warning" id="no-result" *ngIf="onboardings?.length === 0">
+    <span jhiTranslate="kallpapayApp.onboarding.home.notFound">No onboardings found</span>
+  </div>
+
+  <div class="table-responsive" id="entities" *ngIf="onboardings && onboardings.length > 0">
+    <table class="table table-striped" aria-describedby="page-heading">
+      <thead>
+        <tr>
+          <th scope="col"><span jhiTranslate="global.field.id">ID</span></th>
+          <th scope="col"><span jhiTranslate="kallpapayApp.onboarding.externalId">External Id</span></th>
+          <th scope="col"><span jhiTranslate="kallpapayApp.onboarding.accountName">Account Name</span></th>
+          <th scope="col"><span jhiTranslate="kallpapayApp.onboarding.email">Email</span></th>
+          <th scope="col"><span jhiTranslate="kallpapayApp.onboarding.language">Language</span></th>
+          <th scope="col"><span jhiTranslate="kallpapayApp.onboarding.accountHolderType">Account Holder Type</span></th>
+          <th scope="col"><span jhiTranslate="kallpapayApp.onboarding.onboardingUrl">Onboarding Url</span></th>
+          <th scope="col"><span jhiTranslate="kallpapayApp.onboarding.onboardingState">Onboarding State</span></th>
+          <th scope="col"><span jhiTranslate="kallpapayApp.onboarding.redirectUrl">Redirect Url</span></th>
+          <th scope="col"><span jhiTranslate="kallpapayApp.onboarding.status">Status</span></th>
+          <th scope="col"><span jhiTranslate="kallpapayApp.onboarding.tcuUrl">Tcu Url</span></th>
+          <th scope="col"><span jhiTranslate="kallpapayApp.onboarding.accountHolder">Account Holder</span></th>
+          <th scope="col"><span jhiTranslate="kallpapayApp.onboarding.oAuthRedirectParameters">O Auth Redirect Parameters</span></th>
+          <th scope="col"></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let onboarding of onboardings; trackBy: trackId" data-cy="entityTable">
+          <td>
+            <a [routerLink]="['/onboarding', onboarding.id, 'view']">{{ onboarding.id }}</a>
+          </td>
+          <td>{{ onboarding.externalId }}</td>
+          <td>{{ onboarding.accountName }}</td>
+          <td>{{ onboarding.email }}</td>
+          <td>{{ onboarding.language }}</td>
+          <td>{{ onboarding.accountHolderType }}</td>
+          <td>{{ onboarding.onboardingUrl }}</td>
+          <td>{{ onboarding.onboardingState }}</td>
+          <td>{{ onboarding.redirectUrl }}</td>
+          <td>{{ onboarding.status }}</td>
+          <td>{{ onboarding.tcuUrl }}</td>
+          <td>
+            <div *ngIf="onboarding.accountHolder">
+              <a [routerLink]="['/account-holder', onboarding.accountHolder?.id, 'view']">{{ onboarding.accountHolder?.id }}</a>
+            </div>
+          </td>
+          <td>
+            <div *ngIf="onboarding.oAuthRedirectParameters">
+              <a [routerLink]="['/o-auth-redirect-parameters', onboarding.oAuthRedirectParameters?.id, 'view']">{{
+                onboarding.oAuthRedirectParameters?.id
+              }}</a>
+            </div>
+          </td>
+          <td class="text-end">
+            <div class="btn-group">
+              <button
+                type="submit"
+                [routerLink]="['/onboarding', onboarding.id, 'view']"
+                class="btn btn-info btn-sm"
+                data-cy="entityDetailsButton"
+              >
+                <fa-icon icon="eye"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+              </button>
+
+              <button
+                type="submit"
+                [routerLink]="['/onboarding', onboarding.id, 'edit']"
+                class="btn btn-primary btn-sm"
+                data-cy="entityEditButton"
+              >
+                <fa-icon icon="pencil-alt"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+              </button>
+
+              <button type="submit" (click)="delete(onboarding)" class="btn btn-danger btn-sm" data-cy="entityDeleteButton">
+                <fa-icon icon="times"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+              </button>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

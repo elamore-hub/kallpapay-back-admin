@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "kallpa-pay-back-admin": {
+    "kallpapay": {
       "projectType": "application",
       "schematics": {
         "@schematics/angular:component": {
@@ -76,15 +76,15 @@
         "serve": {
           "builder": "@angular-builders/custom-webpack:dev-server",
           "options": {
-            "browserTarget": "kallpa-pay-back-admin:build:development",
+            "browserTarget": "kallpapay:build:development",
             "port": 4200
           },
           "configurations": {
             "production": {
-              "browserTarget": "kallpa-pay-back-admin:build:production"
+              "browserTarget": "kallpapay:build:production"
             },
             "development": {
-              "browserTarget": "kallpa-pay-back-admin:build:development"
+              "browserTarget": "kallpapay:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -98,7 +98,7 @@
       }
     }
   },
-  "defaultProject": "kallpa-pay-back-admin",
+  "defaultProject": "kallpapay",
   "cli": {
     "cache": {
       "enabled": true,

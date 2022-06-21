@@ -1,0 +1,22 @@
+{
+  "applications": ["kallpapay"],
+  "changelogDate": "20220621092351",
+  "dto": "no",
+  "embedded": false,
+  "entityTableName": "donation",
+  "fields": [],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": false,
+  "name": "Donation",
+  "pagination": "no",
+  "readOnly": false,
+  "relationships": [
+    {
+      "otherEntityName": "myCause",
+      "otherEntityRelationshipName": "donation",
+      "relationshipName": "myCause",
+      "relationshipType": "many-to-one"
+    }
+  ],
+  "service": "no"
+}

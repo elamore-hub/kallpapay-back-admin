@@ -1,0 +1,38 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <div *ngIf="oAuthRedirectParameters">
+      <h2 data-cy="oAuthRedirectParametersDetailsHeading">
+        <span jhiTranslate="kallpapayApp.oAuthRedirectParameters.detail.title">O Auth Redirect Parameters</span>
+      </h2>
+
+      <hr />
+
+      <jhi-alert-error></jhi-alert-error>
+
+      <jhi-alert></jhi-alert>
+
+      <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="global.field.id">ID</span></dt>
+        <dd>
+          <span>{{ oAuthRedirectParameters.id }}</span>
+        </dd>
+        <dt><span jhiTranslate="kallpapayApp.oAuthRedirectParameters.state">State</span></dt>
+        <dd>
+          <span>{{ oAuthRedirectParameters.state }}</span>
+        </dd>
+        <dt><span jhiTranslate="kallpapayApp.oAuthRedirectParameters.redirectUrl">Redirect Url</span></dt>
+        <dd>
+          <span>{{ oAuthRedirectParameters.redirectUrl }}</span>
+        </dd>
+      </dl>
+
+      <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+        <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+      </button>
+
+      <button type="button" [routerLink]="['/o-auth-redirect-parameters', oAuthRedirectParameters.id, 'edit']" class="btn btn-primary">
+        <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+      </button>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,28 @@
+{
+  "kallpapayApp": {
+    "cause": {
+      "home": {
+        "title": "Causes",
+        "refreshListLabel": "Actualiser la liste",
+        "createLabel": "Créer un nouveau Cause",
+        "createOrEditLabel": "Créer ou éditer un Cause",
+        "notFound": "Aucun Cause trouvé"
+      },
+      "created": "Un nouveau Cause a été créé avec l'identifiant {{ param }}",
+      "updated": "Le Cause avec l'identifiant {{ param }} a été mis à jour",
+      "deleted": "Le Cause avec l'identifiant {{ param }} a été supprimé",
+      "delete": {
+        "question": "Êtes-vous certain de vouloir supprimer le Cause {{ id }} ?"
+      },
+      "detail": {
+        "title": "Cause"
+      },
+      "id": "ID",
+      "name": "Name",
+      "description": "Description",
+      "logo": "Logo",
+      "category": "Category",
+      "myCause": "My Cause"
+    }
+  }
+}

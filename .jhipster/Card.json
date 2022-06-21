@@ -1,0 +1,61 @@
+{
+  "applications": ["kallpapay"],
+  "changelogDate": "20220621092337",
+  "dto": "no",
+  "embedded": false,
+  "entityTableName": "card",
+  "fields": [
+    {
+      "fieldName": "externalId",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "type",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "mainCurrency",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "cardDesignUrl",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "cardUrl",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "status",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "expiryDate",
+      "fieldType": "LocalDate"
+    },
+    {
+      "fieldName": "name",
+      "fieldType": "String"
+    }
+  ],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": false,
+  "name": "Card",
+  "pagination": "no",
+  "readOnly": false,
+  "relationships": [
+    {
+      "otherEntityName": "portfolio",
+      "otherEntityRelationshipName": "card",
+      "relationshipName": "portfolio",
+      "relationshipType": "one-to-many"
+    },
+    {
+      "otherEntityName": "accountMembership",
+      "otherEntityRelationshipName": "card",
+      "relationshipName": "accountMembership",
+      "relationshipType": "many-to-one"
+    }
+  ],
+  "service": "no"
+}

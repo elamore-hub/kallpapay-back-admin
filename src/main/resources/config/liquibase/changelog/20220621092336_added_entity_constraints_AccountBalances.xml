@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.6.xsd">
+    <!--
+        Added the constraints for entity AccountBalances.
+    -->
+    <changeSet id="20220621092336-2" author="jhipster">
+
+        <addForeignKeyConstraint baseColumnNames="available_id"
+                                 baseTableName="account_balances"
+                                 constraintName="fk_account_balances__available_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="amount"/>
+
+        <addForeignKeyConstraint baseColumnNames="booked_id"
+                                 baseTableName="account_balances"
+                                 constraintName="fk_account_balances__booked_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="amount"/>
+
+        <addForeignKeyConstraint baseColumnNames="pending_id"
+                                 baseTableName="account_balances"
+                                 constraintName="fk_account_balances__pending_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="amount"/>
+
+        <addForeignKeyConstraint baseColumnNames="reserved_id"
+                                 baseTableName="account_balances"
+                                 constraintName="fk_account_balances__reserved_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="amount"/>
+    </changeSet>
+</databaseChangeLog>

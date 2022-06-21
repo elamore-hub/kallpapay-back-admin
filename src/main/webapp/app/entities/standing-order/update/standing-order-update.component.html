@@ -1,0 +1,103 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+      <h2
+        id="jhi-standing-order-heading"
+        data-cy="StandingOrderCreateUpdateHeading"
+        jhiTranslate="kallpapayApp.standingOrder.home.createOrEditLabel"
+      >
+        Create or edit a Standing Order
+      </h2>
+
+      <div>
+        <jhi-alert-error></jhi-alert-error>
+
+        <div class="row mb-3" [hidden]="editForm.get('id')!.value == null">
+          <label class="form-label" jhiTranslate="global.field.id" for="field_id">ID</label>
+          <input type="number" class="form-control" name="id" id="field_id" data-cy="id" formControlName="id" [readonly]="true" />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="kallpapayApp.standingOrder.externalId" for="field_externalId">External Id</label>
+          <input
+            type="text"
+            class="form-control"
+            name="externalId"
+            id="field_externalId"
+            data-cy="externalId"
+            formControlName="externalId"
+          />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="kallpapayApp.standingOrder.reference" for="field_reference">Reference</label>
+          <input type="text" class="form-control" name="reference" id="field_reference" data-cy="reference" formControlName="reference" />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="kallpapayApp.standingOrder.label" for="field_label">Label</label>
+          <input type="text" class="form-control" name="label" id="field_label" data-cy="label" formControlName="label" />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="kallpapayApp.standingOrder.status" for="field_status">Status</label>
+          <input type="text" class="form-control" name="status" id="field_status" data-cy="status" formControlName="status" />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="kallpapayApp.standingOrder.amount" for="field_amount">Amount</label>
+          <select class="form-control" id="field_amount" data-cy="amount" name="amount" formControlName="amount">
+            <option [ngValue]="null"></option>
+            <option
+              [ngValue]="amountOption.id === editForm.get('amount')!.value?.id ? editForm.get('amount')!.value : amountOption"
+              *ngFor="let amountOption of amountsCollection; trackBy: trackAmountById"
+            >
+              {{ amountOption.id }}
+            </option>
+          </select>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="kallpapayApp.standingOrder.sepaBeneficiary" for="field_sepaBeneficiary"
+            >Sepa Beneficiary</label
+          >
+          <select
+            class="form-control"
+            id="field_sepaBeneficiary"
+            data-cy="sepaBeneficiary"
+            name="sepaBeneficiary"
+            formControlName="sepaBeneficiary"
+          >
+            <option [ngValue]="null"></option>
+            <option
+              [ngValue]="
+                sEPABeneficiaryOption.id === editForm.get('sepaBeneficiary')!.value?.id
+                  ? editForm.get('sepaBeneficiary')!.value
+                  : sEPABeneficiaryOption
+              "
+              *ngFor="let sEPABeneficiaryOption of sepaBeneficiariesCollection; trackBy: trackSEPABeneficiaryById"
+            >
+              {{ sEPABeneficiaryOption.id }}
+            </option>
+          </select>
+        </div>
+      </div>
+
+      <div>
+        <button type="button" id="cancel-save" data-cy="entityCreateCancelButton" class="btn btn-secondary" (click)="previousState()">
+          <fa-icon icon="ban"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+        </button>
+
+        <button
+          type="submit"
+          id="save-entity"
+          data-cy="entityCreateSaveButton"
+          [disabled]="editForm.invalid || isSaving"
+          class="btn btn-primary"
+        >
+          <fa-icon icon="save"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+        </button>
+      </div>
+    </form>
+  </div>
+</div>

@@ -1,12 +1,35 @@
 {
   "global": {
-    "title": "KallpaPayBackAdmin",
+    "title": "Kallpapay",
     "browsehappy": "Vous utilisez un <strong>ancien</strong> navigateur. Veuillez <a href=\"http://browsehappy.com/?locale=fr\">mettre à jour votre navigateur</a> pour une meilleure expérience.",
     "menu": {
       "home": "Accueil",
       "jhipster-needle-menu-add-element": "JHipster will add additional menu entries here (do not translate!)",
       "entities": {
         "main": "Entités",
+        "accountHolderInfo": "Account Holder Info",
+        "addressInfo": "Address Info",
+        "accountHolder": "Account Holder",
+        "accountMembership": "Account Membership",
+        "amount": "Amount",
+        "bankAccount": "Bank Account",
+        "accountBalances": "Account Balances",
+        "card": "Card",
+        "iban": "IBAN",
+        "payment": "Payment",
+        "standingOrder": "Standing Order",
+        "sepaBeneficiary": "SEPA Beneficiary",
+        "address": "Address",
+        "transaction": "Transaction",
+        "onboarding": "Onboarding",
+        "oAuthRedirectParameters": "O Auth Redirect Parameters",
+        "supportingDocument": "Supporting Document",
+        "portfolio": "Portfolio",
+        "category": "Category",
+        "cause": "Cause",
+        "myCause": "My Cause",
+        "donation": "Donation",
+        "participation": "Participation",
         "jhipster-needle-menu-add-entry": "JHipster will add additional entities here (do not translate!)"
       },
       "account": {

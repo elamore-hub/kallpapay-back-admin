@@ -1,0 +1,45 @@
+{
+  "applications": ["kallpapay"],
+  "changelogDate": "20220621092346",
+  "dto": "no",
+  "embedded": false,
+  "entityTableName": "supporting_document",
+  "fields": [
+    {
+      "fieldName": "externalId",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "status",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "supportingDocumentType",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "supportingDocumentPurpose",
+      "fieldType": "String"
+    }
+  ],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": false,
+  "name": "SupportingDocument",
+  "pagination": "no",
+  "readOnly": false,
+  "relationships": [
+    {
+      "otherEntityName": "accountHolder",
+      "otherEntityRelationshipName": "supportingDocument",
+      "relationshipName": "accountHolder",
+      "relationshipType": "many-to-one"
+    },
+    {
+      "otherEntityName": "onboarding",
+      "otherEntityRelationshipName": "supportingDocument",
+      "relationshipName": "onboarding",
+      "relationshipType": "many-to-one"
+    }
+  ],
+  "service": "no"
+}

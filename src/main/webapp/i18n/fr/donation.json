@@ -1,0 +1,24 @@
+{
+  "kallpapayApp": {
+    "donation": {
+      "home": {
+        "title": "Donations",
+        "refreshListLabel": "Actualiser la liste",
+        "createLabel": "Créer un nouveau Donation",
+        "createOrEditLabel": "Créer ou éditer un Donation",
+        "notFound": "Aucun Donation trouvé"
+      },
+      "created": "Un nouveau Donation a été créé avec l'identifiant {{ param }}",
+      "updated": "Le Donation avec l'identifiant {{ param }} a été mis à jour",
+      "deleted": "Le Donation avec l'identifiant {{ param }} a été supprimé",
+      "delete": {
+        "question": "Êtes-vous certain de vouloir supprimer le Donation {{ id }} ?"
+      },
+      "detail": {
+        "title": "Donation"
+      },
+      "id": "ID",
+      "myCause": "My Cause"
+    }
+  }
+}

@@ -1,0 +1,188 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+      <h2
+        id="jhi-transaction-heading"
+        data-cy="TransactionCreateUpdateHeading"
+        jhiTranslate="kallpapayApp.transaction.home.createOrEditLabel"
+      >
+        Create or edit a Transaction
+      </h2>
+
+      <div>
+        <jhi-alert-error></jhi-alert-error>
+
+        <div class="row mb-3" [hidden]="editForm.get('id')!.value == null">
+          <label class="form-label" jhiTranslate="global.field.id" for="field_id">ID</label>
+          <input type="number" class="form-control" name="id" id="field_id" data-cy="id" formControlName="id" [readonly]="true" />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="kallpapayApp.transaction.externalId" for="field_externalId">External Id</label>
+          <input
+            type="text"
+            class="form-control"
+            name="externalId"
+            id="field_externalId"
+            data-cy="externalId"
+            formControlName="externalId"
+          />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="kallpapayApp.transaction.reference" for="field_reference">Reference</label>
+          <input type="text" class="form-control" name="reference" id="field_reference" data-cy="reference" formControlName="reference" />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="kallpapayApp.transaction.paymentMethodIdentifier" for="field_paymentMethodIdentifier"
+            >Payment Method Identifier</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            name="paymentMethodIdentifier"
+            id="field_paymentMethodIdentifier"
+            data-cy="paymentMethodIdentifier"
+            formControlName="paymentMethodIdentifier"
+          />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="kallpapayApp.transaction.side" for="field_side">Side</label>
+          <input type="text" class="form-control" name="side" id="field_side" data-cy="side" formControlName="side" />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="kallpapayApp.transaction.type" for="field_type">Type</label>
+          <input type="text" class="form-control" name="type" id="field_type" data-cy="type" formControlName="type" />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="kallpapayApp.transaction.label" for="field_label">Label</label>
+          <input type="text" class="form-control" name="label" id="field_label" data-cy="label" formControlName="label" />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="kallpapayApp.transaction.status" for="field_status">Status</label>
+          <input type="text" class="form-control" name="status" id="field_status" data-cy="status" formControlName="status" />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="kallpapayApp.transaction.paymentId" for="field_paymentId">Payment Id</label>
+          <input type="text" class="form-control" name="paymentId" id="field_paymentId" data-cy="paymentId" formControlName="paymentId" />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="kallpapayApp.transaction.counterparty" for="field_counterparty">Counterparty</label>
+          <input
+            type="text"
+            class="form-control"
+            name="counterparty"
+            id="field_counterparty"
+            data-cy="counterparty"
+            formControlName="counterparty"
+          />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="kallpapayApp.transaction.paymentProduct" for="field_paymentProduct"
+            >Payment Product</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            name="paymentProduct"
+            id="field_paymentProduct"
+            data-cy="paymentProduct"
+            formControlName="paymentProduct"
+          />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="kallpapayApp.transaction.externalReference" for="field_externalReference"
+            >External Reference</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            name="externalReference"
+            id="field_externalReference"
+            data-cy="externalReference"
+            formControlName="externalReference"
+          />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="kallpapayApp.transaction.amount" for="field_amount">Amount</label>
+          <select class="form-control" id="field_amount" data-cy="amount" name="amount" formControlName="amount">
+            <option [ngValue]="null"></option>
+            <option
+              [ngValue]="amountOption.id === editForm.get('amount')!.value?.id ? editForm.get('amount')!.value : amountOption"
+              *ngFor="let amountOption of amountsCollection; trackBy: trackAmountById"
+            >
+              {{ amountOption.id }}
+            </option>
+          </select>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="kallpapayApp.transaction.bankAccount" for="field_bankAccount">Bank Account</label>
+          <select class="form-control" id="field_bankAccount" data-cy="bankAccount" name="bankAccount" formControlName="bankAccount">
+            <option [ngValue]="null"></option>
+            <option
+              [ngValue]="
+                bankAccountOption.id === editForm.get('bankAccount')!.value?.id ? editForm.get('bankAccount')!.value : bankAccountOption
+              "
+              *ngFor="let bankAccountOption of bankAccountsSharedCollection; trackBy: trackBankAccountById"
+            >
+              {{ bankAccountOption.id }}
+            </option>
+          </select>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="kallpapayApp.transaction.iBAN" for="field_iBAN">I BAN</label>
+          <select class="form-control" id="field_iBAN" data-cy="iBAN" name="iBAN" formControlName="iBAN">
+            <option [ngValue]="null"></option>
+            <option
+              [ngValue]="iBANOption.id === editForm.get('iBAN')!.value?.id ? editForm.get('iBAN')!.value : iBANOption"
+              *ngFor="let iBANOption of iBANSSharedCollection; trackBy: trackIBANById"
+            >
+              {{ iBANOption.id }}
+            </option>
+          </select>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="kallpapayApp.transaction.payment" for="field_payment">Payment</label>
+          <select class="form-control" id="field_payment" data-cy="payment" name="payment" formControlName="payment">
+            <option [ngValue]="null"></option>
+            <option
+              [ngValue]="paymentOption.id === editForm.get('payment')!.value?.id ? editForm.get('payment')!.value : paymentOption"
+              *ngFor="let paymentOption of paymentsSharedCollection; trackBy: trackPaymentById"
+            >
+              {{ paymentOption.id }}
+            </option>
+          </select>
+        </div>
+      </div>
+
+      <div>
+        <button type="button" id="cancel-save" data-cy="entityCreateCancelButton" class="btn btn-secondary" (click)="previousState()">
+          <fa-icon icon="ban"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+        </button>
+
+        <button
+          type="submit"
+          id="save-entity"
+          data-cy="entityCreateSaveButton"
+          [disabled]="editForm.invalid || isSaving"
+          class="btn btn-primary"
+        >
+          <fa-icon icon="save"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+        </button>
+      </div>
+    </form>
+  </div>
+</div>

@@ -1,0 +1,54 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <div *ngIf="portfolio">
+      <h2 data-cy="portfolioDetailsHeading"><span jhiTranslate="kallpapayApp.portfolio.detail.title">Portfolio</span></h2>
+
+      <hr />
+
+      <jhi-alert-error></jhi-alert-error>
+
+      <jhi-alert></jhi-alert>
+
+      <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="global.field.id">ID</span></dt>
+        <dd>
+          <span>{{ portfolio.id }}</span>
+        </dd>
+        <dt><span jhiTranslate="kallpapayApp.portfolio.limitAmount">Limit Amount</span></dt>
+        <dd>
+          <span>{{ portfolio.limitAmount }}</span>
+        </dd>
+        <dt><span jhiTranslate="kallpapayApp.portfolio.amount">Amount</span></dt>
+        <dd>
+          <span>{{ portfolio.amount }}</span>
+        </dd>
+        <dt><span jhiTranslate="kallpapayApp.portfolio.limitPercentage">Limit Percentage</span></dt>
+        <dd>
+          <span>{{ portfolio.limitPercentage }}</span>
+        </dd>
+        <dt><span jhiTranslate="kallpapayApp.portfolio.percentage">Percentage</span></dt>
+        <dd>
+          <span>{{ portfolio.percentage }}</span>
+        </dd>
+        <dt><span jhiTranslate="kallpapayApp.portfolio.method">Method</span></dt>
+        <dd>
+          <span jhiTranslate="{{ 'kallpapayApp.Method.' + portfolio.method }}">{{ portfolio.method }}</span>
+        </dd>
+        <dt><span jhiTranslate="kallpapayApp.portfolio.card">Card</span></dt>
+        <dd>
+          <div *ngIf="portfolio.card">
+            <a [routerLink]="['/card', portfolio.card?.id, 'view']">{{ portfolio.card?.id }}</a>
+          </div>
+        </dd>
+      </dl>
+
+      <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+        <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+      </button>
+
+      <button type="button" [routerLink]="['/portfolio', portfolio.id, 'edit']" class="btn btn-primary">
+        <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+      </button>
+    </div>
+  </div>
+</div>

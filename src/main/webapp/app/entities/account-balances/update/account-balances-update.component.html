@@ -1,0 +1,90 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+      <h2
+        id="jhi-account-balances-heading"
+        data-cy="AccountBalancesCreateUpdateHeading"
+        jhiTranslate="kallpapayApp.accountBalances.home.createOrEditLabel"
+      >
+        Create or edit a Account Balances
+      </h2>
+
+      <div>
+        <jhi-alert-error></jhi-alert-error>
+
+        <div class="row mb-3" [hidden]="editForm.get('id')!.value == null">
+          <label class="form-label" jhiTranslate="global.field.id" for="field_id">ID</label>
+          <input type="number" class="form-control" name="id" id="field_id" data-cy="id" formControlName="id" [readonly]="true" />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="kallpapayApp.accountBalances.available" for="field_available">Available</label>
+          <select class="form-control" id="field_available" data-cy="available" name="available" formControlName="available">
+            <option [ngValue]="null"></option>
+            <option
+              [ngValue]="amountOption.id === editForm.get('available')!.value?.id ? editForm.get('available')!.value : amountOption"
+              *ngFor="let amountOption of availablesCollection; trackBy: trackAmountById"
+            >
+              {{ amountOption.id }}
+            </option>
+          </select>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="kallpapayApp.accountBalances.booked" for="field_booked">Booked</label>
+          <select class="form-control" id="field_booked" data-cy="booked" name="booked" formControlName="booked">
+            <option [ngValue]="null"></option>
+            <option
+              [ngValue]="amountOption.id === editForm.get('booked')!.value?.id ? editForm.get('booked')!.value : amountOption"
+              *ngFor="let amountOption of bookedsCollection; trackBy: trackAmountById"
+            >
+              {{ amountOption.id }}
+            </option>
+          </select>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="kallpapayApp.accountBalances.pending" for="field_pending">Pending</label>
+          <select class="form-control" id="field_pending" data-cy="pending" name="pending" formControlName="pending">
+            <option [ngValue]="null"></option>
+            <option
+              [ngValue]="amountOption.id === editForm.get('pending')!.value?.id ? editForm.get('pending')!.value : amountOption"
+              *ngFor="let amountOption of pendingsCollection; trackBy: trackAmountById"
+            >
+              {{ amountOption.id }}
+            </option>
+          </select>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="kallpapayApp.accountBalances.reserved" for="field_reserved">Reserved</label>
+          <select class="form-control" id="field_reserved" data-cy="reserved" name="reserved" formControlName="reserved">
+            <option [ngValue]="null"></option>
+            <option
+              [ngValue]="amountOption.id === editForm.get('reserved')!.value?.id ? editForm.get('reserved')!.value : amountOption"
+              *ngFor="let amountOption of reservedsCollection; trackBy: trackAmountById"
+            >
+              {{ amountOption.id }}
+            </option>
+          </select>
+        </div>
+      </div>
+
+      <div>
+        <button type="button" id="cancel-save" data-cy="entityCreateCancelButton" class="btn btn-secondary" (click)="previousState()">
+          <fa-icon icon="ban"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+        </button>
+
+        <button
+          type="submit"
+          id="save-entity"
+          data-cy="entityCreateSaveButton"
+          [disabled]="editForm.invalid || isSaving"
+          class="btn btn-primary"
+        >
+          <fa-icon icon="save"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+        </button>
+      </div>
+    </form>
+  </div>
+</div>

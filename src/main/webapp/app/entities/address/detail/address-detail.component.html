@@ -1,0 +1,52 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <div *ngIf="address">
+      <h2 data-cy="addressDetailsHeading"><span jhiTranslate="kallpapayApp.address.detail.title">Address</span></h2>
+
+      <hr />
+
+      <jhi-alert-error></jhi-alert-error>
+
+      <jhi-alert></jhi-alert>
+
+      <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="global.field.id">ID</span></dt>
+        <dd>
+          <span>{{ address.id }}</span>
+        </dd>
+        <dt><span jhiTranslate="kallpapayApp.address.addressLine1">Address Line 1</span></dt>
+        <dd>
+          <span>{{ address.addressLine1 }}</span>
+        </dd>
+        <dt><span jhiTranslate="kallpapayApp.address.addressLine2">Address Line 2</span></dt>
+        <dd>
+          <span>{{ address.addressLine2 }}</span>
+        </dd>
+        <dt><span jhiTranslate="kallpapayApp.address.city">City</span></dt>
+        <dd>
+          <span>{{ address.city }}</span>
+        </dd>
+        <dt><span jhiTranslate="kallpapayApp.address.postalCode">Postal Code</span></dt>
+        <dd>
+          <span>{{ address.postalCode }}</span>
+        </dd>
+        <dt><span jhiTranslate="kallpapayApp.address.state">State</span></dt>
+        <dd>
+          <span>{{ address.state }}</span>
+        </dd>
+        <dt><span jhiTranslate="kallpapayApp.address.country">Country</span></dt>
+        <dd>
+          <span>{{ address.country }}</span>
+        </dd>
+      </dl>
+
+      <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+        <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+      </button>
+
+      <button type="button" [routerLink]="['/address', address.id, 'edit']" class="btn btn-primary">
+        <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+      </button>
+    </div>
+  </div>
+</div>

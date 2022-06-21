@@ -1,0 +1,24 @@
+{
+  "applications": ["kallpapay"],
+  "changelogDate": "20220621092345",
+  "dto": "no",
+  "embedded": false,
+  "entityTableName": "o_auth_redirect_parameters",
+  "fields": [
+    {
+      "fieldName": "state",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "redirectUrl",
+      "fieldType": "String"
+    }
+  ],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": false,
+  "name": "OAuthRedirectParameters",
+  "pagination": "no",
+  "readOnly": false,
+  "relationships": [],
+  "service": "no"
+}

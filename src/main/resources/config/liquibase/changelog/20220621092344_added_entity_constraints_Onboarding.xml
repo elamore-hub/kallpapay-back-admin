@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.6.xsd">
+    <!--
+        Added the constraints for entity Onboarding.
+    -->
+    <changeSet id="20220621092344-2" author="jhipster">
+
+        <addForeignKeyConstraint baseColumnNames="account_holder_id"
+                                 baseTableName="onboarding"
+                                 constraintName="fk_onboarding__account_holder_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="account_holder"/>
+
+        <addForeignKeyConstraint baseColumnNames="o_auth_redirect_parameters_id"
+                                 baseTableName="onboarding"
+                                 constraintName="fk_onboarding__o_auth_redirect_parameters_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="o_auth_redirect_parameters"/>
+    </changeSet>
+</databaseChangeLog>

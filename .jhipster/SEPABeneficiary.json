@@ -1,0 +1,40 @@
+{
+  "applications": ["kallpapay"],
+  "changelogDate": "20220621092341",
+  "dto": "no",
+  "embedded": false,
+  "entityTableName": "sepa_beneficiary",
+  "fields": [
+    {
+      "fieldName": "externalId",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "name",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "isMyOwnIban",
+      "fieldType": "Boolean"
+    },
+    {
+      "fieldName": "maskedIBAN",
+      "fieldType": "String"
+    }
+  ],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": false,
+  "name": "SEPABeneficiary",
+  "pagination": "no",
+  "readOnly": false,
+  "relationships": [
+    {
+      "otherEntityName": "address",
+      "otherEntityRelationshipName": "sEPABeneficiary",
+      "ownerSide": true,
+      "relationshipName": "address",
+      "relationshipType": "one-to-one"
+    }
+  ],
+  "service": "no"
+}

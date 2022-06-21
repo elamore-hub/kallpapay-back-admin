@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.6.xsd">
+    <!--
+        Added the constraints for entity StandingOrder.
+    -->
+    <changeSet id="20220621092340-2" author="jhipster">
+
+        <addForeignKeyConstraint baseColumnNames="amount_id"
+                                 baseTableName="standing_order"
+                                 constraintName="fk_standing_order__amount_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="amount"/>
+
+        <addForeignKeyConstraint baseColumnNames="sepa_beneficiary_id"
+                                 baseTableName="standing_order"
+                                 constraintName="fk_standing_order__sepa_beneficiary_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="sepa_beneficiary"/>
+    </changeSet>
+</databaseChangeLog>

@@ -1,0 +1,25 @@
+{
+  "kallpapayApp": {
+    "amount": {
+      "home": {
+        "title": "Amounts",
+        "refreshListLabel": "Actualiser la liste",
+        "createLabel": "Créer un nouveau Amount",
+        "createOrEditLabel": "Créer ou éditer un Amount",
+        "notFound": "Aucun Amount trouvé"
+      },
+      "created": "Un nouveau Amount a été créé avec l'identifiant {{ param }}",
+      "updated": "Le Amount avec l'identifiant {{ param }} a été mis à jour",
+      "deleted": "Le Amount avec l'identifiant {{ param }} a été supprimé",
+      "delete": {
+        "question": "Êtes-vous certain de vouloir supprimer le Amount {{ id }} ?"
+      },
+      "detail": {
+        "title": "Amount"
+      },
+      "id": "ID",
+      "currency": "Currency",
+      "value": "Value"
+    }
+  }
+}

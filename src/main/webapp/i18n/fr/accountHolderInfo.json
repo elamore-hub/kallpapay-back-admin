@@ -1,0 +1,25 @@
+{
+  "kallpapayApp": {
+    "accountHolderInfo": {
+      "home": {
+        "title": "AccountHolderInfos",
+        "refreshListLabel": "Actualiser la liste",
+        "createLabel": "Créer un nouveau Account Holder Info",
+        "createOrEditLabel": "Créer ou éditer un Account Holder Info",
+        "notFound": "Aucun Account Holder Info trouvé"
+      },
+      "created": "Un nouveau Account Holder Info a été créé avec l'identifiant {{ param }}",
+      "updated": "Le Account Holder Info avec l'identifiant {{ param }} a été mis à jour",
+      "deleted": "Le Account Holder Info avec l'identifiant {{ param }} a été supprimé",
+      "delete": {
+        "question": "Êtes-vous certain de vouloir supprimer le Account Holder Info {{ id }} ?"
+      },
+      "detail": {
+        "title": "Account Holder Info"
+      },
+      "id": "ID",
+      "type": "Type",
+      "name": "Name"
+    }
+  }
+}

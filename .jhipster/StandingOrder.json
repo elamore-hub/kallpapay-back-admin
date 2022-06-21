@@ -1,0 +1,47 @@
+{
+  "applications": ["kallpapay"],
+  "changelogDate": "20220621092340",
+  "dto": "no",
+  "embedded": false,
+  "entityTableName": "standing_order",
+  "fields": [
+    {
+      "fieldName": "externalId",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "reference",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "label",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "status",
+      "fieldType": "String"
+    }
+  ],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": false,
+  "name": "StandingOrder",
+  "pagination": "no",
+  "readOnly": false,
+  "relationships": [
+    {
+      "otherEntityName": "amount",
+      "otherEntityRelationshipName": "standingOrder",
+      "ownerSide": true,
+      "relationshipName": "amount",
+      "relationshipType": "one-to-one"
+    },
+    {
+      "otherEntityName": "sEPABeneficiary",
+      "otherEntityRelationshipName": "standingOrder",
+      "ownerSide": true,
+      "relationshipName": "sepaBeneficiary",
+      "relationshipType": "one-to-one"
+    }
+  ],
+  "service": "no"
+}

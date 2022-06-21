@@ -1,0 +1,60 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <div *ngIf="supportingDocument">
+      <h2 data-cy="supportingDocumentDetailsHeading">
+        <span jhiTranslate="kallpapayApp.supportingDocument.detail.title">Supporting Document</span>
+      </h2>
+
+      <hr />
+
+      <jhi-alert-error></jhi-alert-error>
+
+      <jhi-alert></jhi-alert>
+
+      <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="global.field.id">ID</span></dt>
+        <dd>
+          <span>{{ supportingDocument.id }}</span>
+        </dd>
+        <dt><span jhiTranslate="kallpapayApp.supportingDocument.externalId">External Id</span></dt>
+        <dd>
+          <span>{{ supportingDocument.externalId }}</span>
+        </dd>
+        <dt><span jhiTranslate="kallpapayApp.supportingDocument.status">Status</span></dt>
+        <dd>
+          <span>{{ supportingDocument.status }}</span>
+        </dd>
+        <dt><span jhiTranslate="kallpapayApp.supportingDocument.supportingDocumentType">Supporting Document Type</span></dt>
+        <dd>
+          <span>{{ supportingDocument.supportingDocumentType }}</span>
+        </dd>
+        <dt><span jhiTranslate="kallpapayApp.supportingDocument.supportingDocumentPurpose">Supporting Document Purpose</span></dt>
+        <dd>
+          <span>{{ supportingDocument.supportingDocumentPurpose }}</span>
+        </dd>
+        <dt><span jhiTranslate="kallpapayApp.supportingDocument.accountHolder">Account Holder</span></dt>
+        <dd>
+          <div *ngIf="supportingDocument.accountHolder">
+            <a [routerLink]="['/account-holder', supportingDocument.accountHolder?.id, 'view']">{{
+              supportingDocument.accountHolder?.id
+            }}</a>
+          </div>
+        </dd>
+        <dt><span jhiTranslate="kallpapayApp.supportingDocument.onboarding">Onboarding</span></dt>
+        <dd>
+          <div *ngIf="supportingDocument.onboarding">
+            <a [routerLink]="['/onboarding', supportingDocument.onboarding?.id, 'view']">{{ supportingDocument.onboarding?.id }}</a>
+          </div>
+        </dd>
+      </dl>
+
+      <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+        <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+      </button>
+
+      <button type="button" [routerLink]="['/supporting-document', supportingDocument.id, 'edit']" class="btn btn-primary">
+        <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+      </button>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,122 @@
+<div>
+  <h2 id="page-heading" data-cy="TransactionHeading">
+    <span jhiTranslate="kallpapayApp.transaction.home.title">Transactions</span>
+
+    <div class="d-flex justify-content-end">
+      <button class="btn btn-info me-2" (click)="loadAll()" [disabled]="isLoading">
+        <fa-icon icon="sync" [spin]="isLoading"></fa-icon>
+        <span jhiTranslate="kallpapayApp.transaction.home.refreshListLabel">Refresh List</span>
+      </button>
+
+      <button
+        id="jh-create-entity"
+        data-cy="entityCreateButton"
+        class="btn btn-primary jh-create-entity create-transaction"
+        [routerLink]="['/transaction/new']"
+      >
+        <fa-icon icon="plus"></fa-icon>
+        <span jhiTranslate="kallpapayApp.transaction.home.createLabel"> Create a new Transaction </span>
+      </button>
+    </div>
+  </h2>
+
+  <jhi-alert-error></jhi-alert-error>
+
+  <jhi-alert></jhi-alert>
+
+  <div class="alert alert-warning" id="no-result" *ngIf="transactions?.length === 0">
+    <span jhiTranslate="kallpapayApp.transaction.home.notFound">No transactions found</span>
+  </div>
+
+  <div class="table-responsive" id="entities" *ngIf="transactions && transactions.length > 0">
+    <table class="table table-striped" aria-describedby="page-heading">
+      <thead>
+        <tr>
+          <th scope="col"><span jhiTranslate="global.field.id">ID</span></th>
+          <th scope="col"><span jhiTranslate="kallpapayApp.transaction.externalId">External Id</span></th>
+          <th scope="col"><span jhiTranslate="kallpapayApp.transaction.reference">Reference</span></th>
+          <th scope="col"><span jhiTranslate="kallpapayApp.transaction.paymentMethodIdentifier">Payment Method Identifier</span></th>
+          <th scope="col"><span jhiTranslate="kallpapayApp.transaction.side">Side</span></th>
+          <th scope="col"><span jhiTranslate="kallpapayApp.transaction.type">Type</span></th>
+          <th scope="col"><span jhiTranslate="kallpapayApp.transaction.label">Label</span></th>
+          <th scope="col"><span jhiTranslate="kallpapayApp.transaction.status">Status</span></th>
+          <th scope="col"><span jhiTranslate="kallpapayApp.transaction.paymentId">Payment Id</span></th>
+          <th scope="col"><span jhiTranslate="kallpapayApp.transaction.counterparty">Counterparty</span></th>
+          <th scope="col"><span jhiTranslate="kallpapayApp.transaction.paymentProduct">Payment Product</span></th>
+          <th scope="col"><span jhiTranslate="kallpapayApp.transaction.externalReference">External Reference</span></th>
+          <th scope="col"><span jhiTranslate="kallpapayApp.transaction.amount">Amount</span></th>
+          <th scope="col"><span jhiTranslate="kallpapayApp.transaction.bankAccount">Bank Account</span></th>
+          <th scope="col"><span jhiTranslate="kallpapayApp.transaction.iBAN">I BAN</span></th>
+          <th scope="col"><span jhiTranslate="kallpapayApp.transaction.payment">Payment</span></th>
+          <th scope="col"></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let transaction of transactions; trackBy: trackId" data-cy="entityTable">
+          <td>
+            <a [routerLink]="['/transaction', transaction.id, 'view']">{{ transaction.id }}</a>
+          </td>
+          <td>{{ transaction.externalId }}</td>
+          <td>{{ transaction.reference }}</td>
+          <td>{{ transaction.paymentMethodIdentifier }}</td>
+          <td>{{ transaction.side }}</td>
+          <td>{{ transaction.type }}</td>
+          <td>{{ transaction.label }}</td>
+          <td>{{ transaction.status }}</td>
+          <td>{{ transaction.paymentId }}</td>
+          <td>{{ transaction.counterparty }}</td>
+          <td>{{ transaction.paymentProduct }}</td>
+          <td>{{ transaction.externalReference }}</td>
+          <td>
+            <div *ngIf="transaction.amount">
+              <a [routerLink]="['/amount', transaction.amount?.id, 'view']">{{ transaction.amount?.id }}</a>
+            </div>
+          </td>
+          <td>
+            <div *ngIf="transaction.bankAccount">
+              <a [routerLink]="['/bank-account', transaction.bankAccount?.id, 'view']">{{ transaction.bankAccount?.id }}</a>
+            </div>
+          </td>
+          <td>
+            <div *ngIf="transaction.iBAN">
+              <a [routerLink]="['/iban', transaction.iBAN?.id, 'view']">{{ transaction.iBAN?.id }}</a>
+            </div>
+          </td>
+          <td>
+            <div *ngIf="transaction.payment">
+              <a [routerLink]="['/payment', transaction.payment?.id, 'view']">{{ transaction.payment?.id }}</a>
+            </div>
+          </td>
+          <td class="text-end">
+            <div class="btn-group">
+              <button
+                type="submit"
+                [routerLink]="['/transaction', transaction.id, 'view']"
+                class="btn btn-info btn-sm"
+                data-cy="entityDetailsButton"
+              >
+                <fa-icon icon="eye"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+              </button>
+
+              <button
+                type="submit"
+                [routerLink]="['/transaction', transaction.id, 'edit']"
+                class="btn btn-primary btn-sm"
+                data-cy="entityEditButton"
+              >
+                <fa-icon icon="pencil-alt"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+              </button>
+
+              <button type="submit" (click)="delete(transaction)" class="btn btn-danger btn-sm" data-cy="entityDeleteButton">
+                <fa-icon icon="times"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+              </button>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
