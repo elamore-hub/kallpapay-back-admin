@@ -1,0 +1,34 @@
+{
+  "applications": ["kallpapay"],
+  "changelogDate": "20220621092352",
+  "dto": "no",
+  "embedded": false,
+  "entityTableName": "participation",
+  "fields": [
+    {
+      "fieldName": "creationDate",
+      "fieldType": "LocalDate"
+    }
+  ],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": false,
+  "name": "Participation",
+  "pagination": "no",
+  "readOnly": false,
+  "relationships": [
+    {
+      "otherEntityName": "amount",
+      "otherEntityRelationshipName": "participation",
+      "ownerSide": true,
+      "relationshipName": "amount",
+      "relationshipType": "one-to-one"
+    },
+    {
+      "otherEntityName": "portfolio",
+      "otherEntityRelationshipName": "participation",
+      "relationshipName": "portfolio",
+      "relationshipType": "many-to-one"
+    }
+  ],
+  "service": "no"
+}

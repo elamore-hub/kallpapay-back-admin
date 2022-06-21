@@ -1,0 +1,42 @@
+{
+  "applications": ["kallpapay"],
+  "changelogDate": "20220621092348",
+  "dto": "no",
+  "embedded": false,
+  "entityTableName": "category",
+  "fields": [
+    {
+      "fieldName": "name",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "description",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "logo",
+      "fieldType": "byte[]",
+      "fieldTypeBlobContent": "image"
+    }
+  ],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": false,
+  "name": "Category",
+  "pagination": "no",
+  "readOnly": false,
+  "relationships": [
+    {
+      "otherEntityName": "portfolio",
+      "otherEntityRelationshipName": "category",
+      "relationshipName": "portfolio",
+      "relationshipType": "many-to-one"
+    },
+    {
+      "otherEntityName": "cause",
+      "otherEntityRelationshipName": "category",
+      "relationshipName": "cause",
+      "relationshipType": "many-to-one"
+    }
+  ],
+  "service": "no"
+}

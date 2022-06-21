@@ -1,0 +1,28 @@
+{
+  "kallpapayApp": {
+    "sEPABeneficiary": {
+      "home": {
+        "title": "SEPABeneficiaries",
+        "refreshListLabel": "Actualiser la liste",
+        "createLabel": "Créer un nouveau SEPA Beneficiary",
+        "createOrEditLabel": "Créer ou éditer un SEPA Beneficiary",
+        "notFound": "Aucun SEPA Beneficiary trouvé"
+      },
+      "created": "Un nouveau SEPA Beneficiary a été créé avec l'identifiant {{ param }}",
+      "updated": "Le SEPA Beneficiary avec l'identifiant {{ param }} a été mis à jour",
+      "deleted": "Le SEPA Beneficiary avec l'identifiant {{ param }} a été supprimé",
+      "delete": {
+        "question": "Êtes-vous certain de vouloir supprimer le SEPA Beneficiary {{ id }} ?"
+      },
+      "detail": {
+        "title": "SEPA Beneficiary"
+      },
+      "id": "ID",
+      "externalId": "External Id",
+      "name": "Name",
+      "isMyOwnIban": "Is My Own Iban",
+      "maskedIBAN": "Masked IBAN",
+      "address": "Address"
+    }
+  }
+}

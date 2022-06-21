@@ -1,0 +1,20 @@
+{
+  "applications": ["kallpapay"],
+  "changelogDate": "20220621092331",
+  "dto": "no",
+  "embedded": false,
+  "entityTableName": "address_info",
+  "fields": [
+    {
+      "fieldName": "name",
+      "fieldType": "String"
+    }
+  ],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": false,
+  "name": "AddressInfo",
+  "pagination": "no",
+  "readOnly": false,
+  "relationships": [],
+  "service": "no"
+}

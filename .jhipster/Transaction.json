@@ -1,0 +1,86 @@
+{
+  "applications": ["kallpapay"],
+  "changelogDate": "20220621092343",
+  "dto": "no",
+  "embedded": false,
+  "entityTableName": "transaction",
+  "fields": [
+    {
+      "fieldName": "externalId",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "reference",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "paymentMethodIdentifier",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "side",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "type",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "label",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "status",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "paymentId",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "counterparty",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "paymentProduct",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "externalReference",
+      "fieldType": "String"
+    }
+  ],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": false,
+  "name": "Transaction",
+  "pagination": "no",
+  "readOnly": false,
+  "relationships": [
+    {
+      "otherEntityName": "amount",
+      "otherEntityRelationshipName": "transaction",
+      "ownerSide": true,
+      "relationshipName": "amount",
+      "relationshipType": "one-to-one"
+    },
+    {
+      "otherEntityName": "bankAccount",
+      "otherEntityRelationshipName": "transaction",
+      "relationshipName": "bankAccount",
+      "relationshipType": "many-to-one"
+    },
+    {
+      "otherEntityName": "iBAN",
+      "otherEntityRelationshipName": "transaction",
+      "relationshipName": "iBAN",
+      "relationshipType": "many-to-one"
+    },
+    {
+      "otherEntityName": "payment",
+      "otherEntityRelationshipName": "transaction",
+      "relationshipName": "payment",
+      "relationshipType": "many-to-one"
+    }
+  ],
+  "service": "no"
+}

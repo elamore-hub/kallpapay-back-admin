@@ -5,12 +5,12 @@
                              https://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>com.kallpapay.backadmin</groupId>
-    <artifactId>kallpa-pay-back-admin</artifactId>
+    <groupId>com.kallpapay</groupId>
+    <artifactId>kallpapay</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <packaging>jar</packaging>
-    <name>Kallpa Pay Back Admin</name>
-    <description>Description for KallpaPayBackAdmin</description>
+    <name>Kallpapay</name>
+    <description>Description for kallpapay</description>
 
     <repositories>
         <!-- jhipster-needle-maven-repository -->
@@ -34,7 +34,7 @@
         <maven.build.timestamp.format>yyyyMMddHHmmss</maven.build.timestamp.format>
         <maven.compiler.source>${java.version}</maven.compiler.source>
         <maven.compiler.target>${java.version}</maven.compiler.target>
-        <start-class>com.kallpapay.backadmin.KallpaPayBackAdminApp</start-class>
+        <start-class>com.kallpapay.KallpapayApp</start-class>
         <argLine>-Djava.security.egd=file:/dev/./urandom -Xmx512m</argLine>
         <m2e.apt.activation>jdt_apt</m2e.apt.activation>
         <run.addResources>false</run.addResources>
@@ -56,6 +56,7 @@
         https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-dependencies/${spring-boot.version} -->
         <liquibase.version>4.6.1</liquibase.version>
         <liquibase-hibernate5.version>4.6.1</liquibase-hibernate5.version>
+        <h2.version>1.4.200</h2.version>
         <validation-api.version>2.0.1.Final</validation-api.version>
         <jaxb-runtime.version>2.3.3</jaxb-runtime.version>
         <archunit-junit5.version>0.22.0</archunit-junit5.version>
@@ -591,7 +592,7 @@
                             </platforms>
                         </from>
                         <to>
-                            <image>kallpapaybackadmin:latest</image>
+                            <image>kallpapay:latest</image>
                         </to>
                         <container>
                             <entrypoint>
@@ -822,6 +823,10 @@
                 <activeByDefault>true</activeByDefault>
             </activation>
             <dependencies>
+                <dependency>
+                    <groupId>com.h2database</groupId>
+                    <artifactId>h2</artifactId>
+                </dependency>
             </dependencies>
             <build>
                 <plugins>
@@ -958,8 +963,8 @@
                     <optional>true</optional>
                 </dependency>
                 <dependency>
-                    <groupId>mysql</groupId>
-                    <artifactId>mysql-connector-java</artifactId>
+                    <groupId>com.h2database</groupId>
+                    <artifactId>h2</artifactId>
                 </dependency>
             </dependencies>
             <build>
@@ -978,12 +983,12 @@
                             <configuration>
                                 <changeLogFile>${project.basedir}/src/main/resources/config/liquibase/master.xml</changeLogFile>
                                 <diffChangeLogFile>${project.basedir}/src/main/resources/config/liquibase/changelog/${maven.build.timestamp}_changelog.xml</diffChangeLogFile>
-                                <driver>com.mysql.cj.jdbc.Driver</driver>
-                                <url>jdbc:mysql://localhost:3306/KallpaPayBackAdmin</url>
-                                <defaultSchemaName>KallpaPayBackAdmin</defaultSchemaName>
-                                <username>root</username>
+                                <driver>org.h2.Driver</driver>
+                                <url>jdbc:h2:file:${project.build.directory}/h2db/db/kallpapay</url>
+                                <defaultSchemaName></defaultSchemaName>
+                                <username>kallpapay</username>
                                 <password></password>
-                                <referenceUrl>hibernate:spring:com.kallpapay.backadmin.domain?dialect=org.hibernate.dialect.MySQL8Dialect&amp;hibernate.physical_naming_strategy=org.springframework.boot.orm.jpa.hibernate.SpringPhysicalNamingStrategy&amp;hibernate.implicit_naming_strategy=org.springframework.boot.orm.jpa.hibernate.SpringImplicitNamingStrategy</referenceUrl>
+                                <referenceUrl>hibernate:spring:com.kallpapay.domain?dialect=org.hibernate.dialect.H2Dialect&amp;hibernate.physical_naming_strategy=org.springframework.boot.orm.jpa.hibernate.SpringPhysicalNamingStrategy&amp;hibernate.implicit_naming_strategy=org.springframework.boot.orm.jpa.hibernate.SpringImplicitNamingStrategy</referenceUrl>
                                 <verbose>true</verbose>
                                 <logging>debug</logging>
                                 <contexts>!test</contexts>
@@ -1008,6 +1013,11 @@
                                     <groupId>javax.validation</groupId>
                                     <artifactId>validation-api</artifactId>
                                     <version>${validation-api.version}</version>
+                                </dependency>
+                                <dependency>
+                                    <groupId>com.h2database</groupId>
+                                    <artifactId>h2</artifactId>
+                                    <version>${h2.version}</version>
                                 </dependency>
                             </dependencies>
                         </plugin>

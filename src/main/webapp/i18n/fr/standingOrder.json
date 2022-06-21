@@ -1,0 +1,29 @@
+{
+  "kallpapayApp": {
+    "standingOrder": {
+      "home": {
+        "title": "StandingOrders",
+        "refreshListLabel": "Actualiser la liste",
+        "createLabel": "Créer un nouveau Standing Order",
+        "createOrEditLabel": "Créer ou éditer un Standing Order",
+        "notFound": "Aucun Standing Order trouvé"
+      },
+      "created": "Un nouveau Standing Order a été créé avec l'identifiant {{ param }}",
+      "updated": "Le Standing Order avec l'identifiant {{ param }} a été mis à jour",
+      "deleted": "Le Standing Order avec l'identifiant {{ param }} a été supprimé",
+      "delete": {
+        "question": "Êtes-vous certain de vouloir supprimer le Standing Order {{ id }} ?"
+      },
+      "detail": {
+        "title": "Standing Order"
+      },
+      "id": "ID",
+      "externalId": "External Id",
+      "reference": "Reference",
+      "label": "Label",
+      "status": "Status",
+      "amount": "Amount",
+      "sepaBeneficiary": "Sepa Beneficiary"
+    }
+  }
+}

@@ -1,0 +1,33 @@
+{
+  "kallpapayApp": {
+    "card": {
+      "home": {
+        "title": "Cards",
+        "refreshListLabel": "Actualiser la liste",
+        "createLabel": "Créer un nouveau Card",
+        "createOrEditLabel": "Créer ou éditer un Card",
+        "notFound": "Aucun Card trouvé"
+      },
+      "created": "Un nouveau Card a été créé avec l'identifiant {{ param }}",
+      "updated": "Le Card avec l'identifiant {{ param }} a été mis à jour",
+      "deleted": "Le Card avec l'identifiant {{ param }} a été supprimé",
+      "delete": {
+        "question": "Êtes-vous certain de vouloir supprimer le Card {{ id }} ?"
+      },
+      "detail": {
+        "title": "Card"
+      },
+      "id": "ID",
+      "externalId": "External Id",
+      "type": "Type",
+      "mainCurrency": "Main Currency",
+      "cardDesignUrl": "Card Design Url",
+      "cardUrl": "Card Url",
+      "status": "Status",
+      "expiryDate": "Expiry Date",
+      "name": "Name",
+      "portfolio": "Portfolio",
+      "accountMembership": "Account Membership"
+    }
+  }
+}

@@ -1,0 +1,62 @@
+{
+  "applications": ["kallpapay"],
+  "changelogDate": "20220621092332",
+  "dto": "no",
+  "embedded": false,
+  "entityTableName": "account_holder",
+  "fields": [
+    {
+      "fieldName": "externalId",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "verificationStatus",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "statusInfo",
+      "fieldType": "String"
+    }
+  ],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": false,
+  "name": "AccountHolder",
+  "pagination": "no",
+  "readOnly": false,
+  "relationships": [
+    {
+      "otherEntityName": "accountHolderInfo",
+      "otherEntityRelationshipName": "accountHolder",
+      "ownerSide": true,
+      "relationshipName": "accountHolderInfo",
+      "relationshipType": "one-to-one"
+    },
+    {
+      "otherEntityName": "addressInfo",
+      "otherEntityRelationshipName": "accountHolder",
+      "ownerSide": true,
+      "relationshipName": "residencyAddress",
+      "relationshipType": "one-to-one"
+    },
+    {
+      "otherEntityName": "bankAccount",
+      "otherEntityRelationshipName": "accountHolder",
+      "relationshipName": "bankAccount",
+      "relationshipType": "one-to-many"
+    },
+    {
+      "otherEntityName": "supportingDocument",
+      "otherEntityRelationshipName": "accountHolder",
+      "relationshipName": "supportingDocument",
+      "relationshipType": "one-to-many"
+    },
+    {
+      "otherEntityName": "onboarding",
+      "otherEntityRelationshipName": "accountHolder",
+      "ownerSide": false,
+      "relationshipName": "onboarding",
+      "relationshipType": "one-to-one"
+    }
+  ],
+  "service": "no"
+}

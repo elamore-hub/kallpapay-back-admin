@@ -1,0 +1,41 @@
+{
+  "applications": ["kallpapay"],
+  "changelogDate": "20220621092333",
+  "dto": "no",
+  "embedded": false,
+  "entityTableName": "account_membership",
+  "fields": [
+    {
+      "fieldName": "externalId",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "email",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "status",
+      "fieldType": "String"
+    }
+  ],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": false,
+  "name": "AccountMembership",
+  "pagination": "no",
+  "readOnly": false,
+  "relationships": [
+    {
+      "otherEntityName": "card",
+      "otherEntityRelationshipName": "accountMembership",
+      "relationshipName": "card",
+      "relationshipType": "one-to-many"
+    },
+    {
+      "otherEntityName": "bankAccount",
+      "otherEntityRelationshipName": "accountMembership",
+      "relationshipName": "bankAccount",
+      "relationshipType": "many-to-one"
+    }
+  ],
+  "service": "no"
+}

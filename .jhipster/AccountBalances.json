@@ -1,0 +1,44 @@
+{
+  "applications": ["kallpapay"],
+  "changelogDate": "20220621092336",
+  "dto": "no",
+  "embedded": false,
+  "entityTableName": "account_balances",
+  "fields": [],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": false,
+  "name": "AccountBalances",
+  "pagination": "no",
+  "readOnly": false,
+  "relationships": [
+    {
+      "otherEntityName": "amount",
+      "otherEntityRelationshipName": "accountBalances",
+      "ownerSide": true,
+      "relationshipName": "available",
+      "relationshipType": "one-to-one"
+    },
+    {
+      "otherEntityName": "amount",
+      "otherEntityRelationshipName": "accountBalances",
+      "ownerSide": true,
+      "relationshipName": "booked",
+      "relationshipType": "one-to-one"
+    },
+    {
+      "otherEntityName": "amount",
+      "otherEntityRelationshipName": "accountBalances",
+      "ownerSide": true,
+      "relationshipName": "pending",
+      "relationshipType": "one-to-one"
+    },
+    {
+      "otherEntityName": "amount",
+      "otherEntityRelationshipName": "accountBalances",
+      "ownerSide": true,
+      "relationshipName": "reserved",
+      "relationshipType": "one-to-one"
+    }
+  ],
+  "service": "no"
+}

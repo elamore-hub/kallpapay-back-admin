@@ -1,0 +1,38 @@
+{
+  "applications": ["kallpapay"],
+  "changelogDate": "20220621092339",
+  "dto": "no",
+  "embedded": false,
+  "entityTableName": "payment",
+  "fields": [
+    {
+      "fieldName": "externalId",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "status",
+      "fieldType": "String"
+    }
+  ],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": false,
+  "name": "Payment",
+  "pagination": "no",
+  "readOnly": false,
+  "relationships": [
+    {
+      "otherEntityName": "standingOrder",
+      "otherEntityRelationshipName": "payment",
+      "ownerSide": true,
+      "relationshipName": "standingOrder",
+      "relationshipType": "one-to-one"
+    },
+    {
+      "otherEntityName": "transaction",
+      "otherEntityRelationshipName": "payment",
+      "relationshipName": "transaction",
+      "relationshipType": "one-to-many"
+    }
+  ],
+  "service": "no"
+}

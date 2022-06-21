@@ -1,0 +1,96 @@
+<div>
+  <h2 id="page-heading" data-cy="StandingOrderHeading">
+    <span jhiTranslate="kallpapayApp.standingOrder.home.title">Standing Orders</span>
+
+    <div class="d-flex justify-content-end">
+      <button class="btn btn-info me-2" (click)="loadAll()" [disabled]="isLoading">
+        <fa-icon icon="sync" [spin]="isLoading"></fa-icon>
+        <span jhiTranslate="kallpapayApp.standingOrder.home.refreshListLabel">Refresh List</span>
+      </button>
+
+      <button
+        id="jh-create-entity"
+        data-cy="entityCreateButton"
+        class="btn btn-primary jh-create-entity create-standing-order"
+        [routerLink]="['/standing-order/new']"
+      >
+        <fa-icon icon="plus"></fa-icon>
+        <span jhiTranslate="kallpapayApp.standingOrder.home.createLabel"> Create a new Standing Order </span>
+      </button>
+    </div>
+  </h2>
+
+  <jhi-alert-error></jhi-alert-error>
+
+  <jhi-alert></jhi-alert>
+
+  <div class="alert alert-warning" id="no-result" *ngIf="standingOrders?.length === 0">
+    <span jhiTranslate="kallpapayApp.standingOrder.home.notFound">No standingOrders found</span>
+  </div>
+
+  <div class="table-responsive" id="entities" *ngIf="standingOrders && standingOrders.length > 0">
+    <table class="table table-striped" aria-describedby="page-heading">
+      <thead>
+        <tr>
+          <th scope="col"><span jhiTranslate="global.field.id">ID</span></th>
+          <th scope="col"><span jhiTranslate="kallpapayApp.standingOrder.externalId">External Id</span></th>
+          <th scope="col"><span jhiTranslate="kallpapayApp.standingOrder.reference">Reference</span></th>
+          <th scope="col"><span jhiTranslate="kallpapayApp.standingOrder.label">Label</span></th>
+          <th scope="col"><span jhiTranslate="kallpapayApp.standingOrder.status">Status</span></th>
+          <th scope="col"><span jhiTranslate="kallpapayApp.standingOrder.amount">Amount</span></th>
+          <th scope="col"><span jhiTranslate="kallpapayApp.standingOrder.sepaBeneficiary">Sepa Beneficiary</span></th>
+          <th scope="col"></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let standingOrder of standingOrders; trackBy: trackId" data-cy="entityTable">
+          <td>
+            <a [routerLink]="['/standing-order', standingOrder.id, 'view']">{{ standingOrder.id }}</a>
+          </td>
+          <td>{{ standingOrder.externalId }}</td>
+          <td>{{ standingOrder.reference }}</td>
+          <td>{{ standingOrder.label }}</td>
+          <td>{{ standingOrder.status }}</td>
+          <td>
+            <div *ngIf="standingOrder.amount">
+              <a [routerLink]="['/amount', standingOrder.amount?.id, 'view']">{{ standingOrder.amount?.id }}</a>
+            </div>
+          </td>
+          <td>
+            <div *ngIf="standingOrder.sepaBeneficiary">
+              <a [routerLink]="['/sepa-beneficiary', standingOrder.sepaBeneficiary?.id, 'view']">{{ standingOrder.sepaBeneficiary?.id }}</a>
+            </div>
+          </td>
+          <td class="text-end">
+            <div class="btn-group">
+              <button
+                type="submit"
+                [routerLink]="['/standing-order', standingOrder.id, 'view']"
+                class="btn btn-info btn-sm"
+                data-cy="entityDetailsButton"
+              >
+                <fa-icon icon="eye"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+              </button>
+
+              <button
+                type="submit"
+                [routerLink]="['/standing-order', standingOrder.id, 'edit']"
+                class="btn btn-primary btn-sm"
+                data-cy="entityEditButton"
+              >
+                <fa-icon icon="pencil-alt"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+              </button>
+
+              <button type="submit" (click)="delete(standingOrder)" class="btn btn-danger btn-sm" data-cy="entityDeleteButton">
+                <fa-icon icon="times"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+              </button>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

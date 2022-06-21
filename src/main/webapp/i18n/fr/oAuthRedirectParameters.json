@@ -1,0 +1,25 @@
+{
+  "kallpapayApp": {
+    "oAuthRedirectParameters": {
+      "home": {
+        "title": "OAuthRedirectParameters",
+        "refreshListLabel": "Actualiser la liste",
+        "createLabel": "Créer un nouveau O Auth Redirect Parameters",
+        "createOrEditLabel": "Créer ou éditer un O Auth Redirect Parameters",
+        "notFound": "Aucun O Auth Redirect Parameters trouvé"
+      },
+      "created": "Un nouveau O Auth Redirect Parameters a été créé avec l'identifiant {{ param }}",
+      "updated": "Le O Auth Redirect Parameters avec l'identifiant {{ param }} a été mis à jour",
+      "deleted": "Le O Auth Redirect Parameters avec l'identifiant {{ param }} a été supprimé",
+      "delete": {
+        "question": "Êtes-vous certain de vouloir supprimer le O Auth Redirect Parameters {{ id }} ?"
+      },
+      "detail": {
+        "title": "O Auth Redirect Parameters"
+      },
+      "id": "ID",
+      "state": "State",
+      "redirectUrl": "Redirect Url"
+    }
+  }
+}

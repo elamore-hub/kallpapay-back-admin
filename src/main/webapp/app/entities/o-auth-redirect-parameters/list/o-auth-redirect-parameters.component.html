@@ -1,0 +1,80 @@
+<div>
+  <h2 id="page-heading" data-cy="OAuthRedirectParametersHeading">
+    <span jhiTranslate="kallpapayApp.oAuthRedirectParameters.home.title">O Auth Redirect Parameters</span>
+
+    <div class="d-flex justify-content-end">
+      <button class="btn btn-info me-2" (click)="loadAll()" [disabled]="isLoading">
+        <fa-icon icon="sync" [spin]="isLoading"></fa-icon>
+        <span jhiTranslate="kallpapayApp.oAuthRedirectParameters.home.refreshListLabel">Refresh List</span>
+      </button>
+
+      <button
+        id="jh-create-entity"
+        data-cy="entityCreateButton"
+        class="btn btn-primary jh-create-entity create-o-auth-redirect-parameters"
+        [routerLink]="['/o-auth-redirect-parameters/new']"
+      >
+        <fa-icon icon="plus"></fa-icon>
+        <span jhiTranslate="kallpapayApp.oAuthRedirectParameters.home.createLabel"> Create a new O Auth Redirect Parameters </span>
+      </button>
+    </div>
+  </h2>
+
+  <jhi-alert-error></jhi-alert-error>
+
+  <jhi-alert></jhi-alert>
+
+  <div class="alert alert-warning" id="no-result" *ngIf="oAuthRedirectParameters?.length === 0">
+    <span jhiTranslate="kallpapayApp.oAuthRedirectParameters.home.notFound">No oAuthRedirectParameters found</span>
+  </div>
+
+  <div class="table-responsive" id="entities" *ngIf="oAuthRedirectParameters && oAuthRedirectParameters.length > 0">
+    <table class="table table-striped" aria-describedby="page-heading">
+      <thead>
+        <tr>
+          <th scope="col"><span jhiTranslate="global.field.id">ID</span></th>
+          <th scope="col"><span jhiTranslate="kallpapayApp.oAuthRedirectParameters.state">State</span></th>
+          <th scope="col"><span jhiTranslate="kallpapayApp.oAuthRedirectParameters.redirectUrl">Redirect Url</span></th>
+          <th scope="col"></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let oAuthRedirectParameters of oAuthRedirectParameters; trackBy: trackId" data-cy="entityTable">
+          <td>
+            <a [routerLink]="['/o-auth-redirect-parameters', oAuthRedirectParameters.id, 'view']">{{ oAuthRedirectParameters.id }}</a>
+          </td>
+          <td>{{ oAuthRedirectParameters.state }}</td>
+          <td>{{ oAuthRedirectParameters.redirectUrl }}</td>
+          <td class="text-end">
+            <div class="btn-group">
+              <button
+                type="submit"
+                [routerLink]="['/o-auth-redirect-parameters', oAuthRedirectParameters.id, 'view']"
+                class="btn btn-info btn-sm"
+                data-cy="entityDetailsButton"
+              >
+                <fa-icon icon="eye"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+              </button>
+
+              <button
+                type="submit"
+                [routerLink]="['/o-auth-redirect-parameters', oAuthRedirectParameters.id, 'edit']"
+                class="btn btn-primary btn-sm"
+                data-cy="entityEditButton"
+              >
+                <fa-icon icon="pencil-alt"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+              </button>
+
+              <button type="submit" (click)="delete(oAuthRedirectParameters)" class="btn btn-danger btn-sm" data-cy="entityDeleteButton">
+                <fa-icon icon="times"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+              </button>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.6.xsd">
+    <!--
+        Added the constraints for entity MyCause.
+    -->
+    <changeSet id="20220621092350-2" author="jhipster">
+
+        <addForeignKeyConstraint baseColumnNames="cause_id"
+                                 baseTableName="my_cause"
+                                 constraintName="fk_my_cause__cause_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="cause"/>
+
+        <addForeignKeyConstraint baseColumnNames="portfolio_id"
+                                 baseTableName="my_cause"
+                                 constraintName="fk_my_cause__portfolio_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="portfolio"/>
+    </changeSet>
+</databaseChangeLog>

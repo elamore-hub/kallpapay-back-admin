@@ -1,0 +1,45 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <div *ngIf="cause">
+      <h2 data-cy="causeDetailsHeading"><span jhiTranslate="kallpapayApp.cause.detail.title">Cause</span></h2>
+
+      <hr />
+
+      <jhi-alert-error></jhi-alert-error>
+
+      <jhi-alert></jhi-alert>
+
+      <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="global.field.id">ID</span></dt>
+        <dd>
+          <span>{{ cause.id }}</span>
+        </dd>
+        <dt><span jhiTranslate="kallpapayApp.cause.name">Name</span></dt>
+        <dd>
+          <span>{{ cause.name }}</span>
+        </dd>
+        <dt><span jhiTranslate="kallpapayApp.cause.description">Description</span></dt>
+        <dd>
+          <span>{{ cause.description }}</span>
+        </dd>
+        <dt><span jhiTranslate="kallpapayApp.cause.logo">Logo</span></dt>
+        <dd>
+          <div *ngIf="cause.logo">
+            <a (click)="openFile(cause.logo, cause.logoContentType)">
+              <img [src]="'data:' + cause.logoContentType + ';base64,' + cause.logo" style="max-width: 100%" alt="cause image" />
+            </a>
+            {{ cause.logoContentType }}, {{ byteSize(cause.logo) }}
+          </div>
+        </dd>
+      </dl>
+
+      <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+        <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+      </button>
+
+      <button type="button" [routerLink]="['/cause', cause.id, 'edit']" class="btn btn-primary">
+        <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+      </button>
+    </div>
+  </div>
+</div>

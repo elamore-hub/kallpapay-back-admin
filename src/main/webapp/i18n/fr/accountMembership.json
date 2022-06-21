@@ -1,0 +1,28 @@
+{
+  "kallpapayApp": {
+    "accountMembership": {
+      "home": {
+        "title": "AccountMemberships",
+        "refreshListLabel": "Actualiser la liste",
+        "createLabel": "Créer un nouveau Account Membership",
+        "createOrEditLabel": "Créer ou éditer un Account Membership",
+        "notFound": "Aucun Account Membership trouvé"
+      },
+      "created": "Un nouveau Account Membership a été créé avec l'identifiant {{ param }}",
+      "updated": "Le Account Membership avec l'identifiant {{ param }} a été mis à jour",
+      "deleted": "Le Account Membership avec l'identifiant {{ param }} a été supprimé",
+      "delete": {
+        "question": "Êtes-vous certain de vouloir supprimer le Account Membership {{ id }} ?"
+      },
+      "detail": {
+        "title": "Account Membership"
+      },
+      "id": "ID",
+      "externalId": "External Id",
+      "email": "Email",
+      "status": "Status",
+      "card": "Card",
+      "bankAccount": "Bank Account"
+    }
+  }
+}

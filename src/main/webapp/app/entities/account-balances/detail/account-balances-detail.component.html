@@ -1,0 +1,54 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <div *ngIf="accountBalances">
+      <h2 data-cy="accountBalancesDetailsHeading">
+        <span jhiTranslate="kallpapayApp.accountBalances.detail.title">Account Balances</span>
+      </h2>
+
+      <hr />
+
+      <jhi-alert-error></jhi-alert-error>
+
+      <jhi-alert></jhi-alert>
+
+      <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="global.field.id">ID</span></dt>
+        <dd>
+          <span>{{ accountBalances.id }}</span>
+        </dd>
+        <dt><span jhiTranslate="kallpapayApp.accountBalances.available">Available</span></dt>
+        <dd>
+          <div *ngIf="accountBalances.available">
+            <a [routerLink]="['/amount', accountBalances.available?.id, 'view']">{{ accountBalances.available?.id }}</a>
+          </div>
+        </dd>
+        <dt><span jhiTranslate="kallpapayApp.accountBalances.booked">Booked</span></dt>
+        <dd>
+          <div *ngIf="accountBalances.booked">
+            <a [routerLink]="['/amount', accountBalances.booked?.id, 'view']">{{ accountBalances.booked?.id }}</a>
+          </div>
+        </dd>
+        <dt><span jhiTranslate="kallpapayApp.accountBalances.pending">Pending</span></dt>
+        <dd>
+          <div *ngIf="accountBalances.pending">
+            <a [routerLink]="['/amount', accountBalances.pending?.id, 'view']">{{ accountBalances.pending?.id }}</a>
+          </div>
+        </dd>
+        <dt><span jhiTranslate="kallpapayApp.accountBalances.reserved">Reserved</span></dt>
+        <dd>
+          <div *ngIf="accountBalances.reserved">
+            <a [routerLink]="['/amount', accountBalances.reserved?.id, 'view']">{{ accountBalances.reserved?.id }}</a>
+          </div>
+        </dd>
+      </dl>
+
+      <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+        <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+      </button>
+
+      <button type="button" [routerLink]="['/account-balances', accountBalances.id, 'edit']" class="btn btn-primary">
+        <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+      </button>
+    </div>
+  </div>
+</div>

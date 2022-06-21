@@ -1,0 +1,178 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+      <h2 id="jhi-onboarding-heading" data-cy="OnboardingCreateUpdateHeading" jhiTranslate="kallpapayApp.onboarding.home.createOrEditLabel">
+        Create or edit a Onboarding
+      </h2>
+
+      <div>
+        <jhi-alert-error></jhi-alert-error>
+
+        <div class="row mb-3" [hidden]="editForm.get('id')!.value == null">
+          <label class="form-label" jhiTranslate="global.field.id" for="field_id">ID</label>
+          <input type="number" class="form-control" name="id" id="field_id" data-cy="id" formControlName="id" [readonly]="true" />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="kallpapayApp.onboarding.externalId" for="field_externalId">External Id</label>
+          <input
+            type="text"
+            class="form-control"
+            name="externalId"
+            id="field_externalId"
+            data-cy="externalId"
+            formControlName="externalId"
+          />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="kallpapayApp.onboarding.accountName" for="field_accountName">Account Name</label>
+          <input
+            type="text"
+            class="form-control"
+            name="accountName"
+            id="field_accountName"
+            data-cy="accountName"
+            formControlName="accountName"
+          />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="kallpapayApp.onboarding.email" for="field_email">Email</label>
+          <input type="text" class="form-control" name="email" id="field_email" data-cy="email" formControlName="email" />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="kallpapayApp.onboarding.language" for="field_language">Language</label>
+          <input type="text" class="form-control" name="language" id="field_language" data-cy="language" formControlName="language" />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="kallpapayApp.onboarding.accountHolderType" for="field_accountHolderType"
+            >Account Holder Type</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            name="accountHolderType"
+            id="field_accountHolderType"
+            data-cy="accountHolderType"
+            formControlName="accountHolderType"
+          />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="kallpapayApp.onboarding.onboardingUrl" for="field_onboardingUrl">Onboarding Url</label>
+          <input
+            type="text"
+            class="form-control"
+            name="onboardingUrl"
+            id="field_onboardingUrl"
+            data-cy="onboardingUrl"
+            formControlName="onboardingUrl"
+          />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="kallpapayApp.onboarding.onboardingState" for="field_onboardingState"
+            >Onboarding State</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            name="onboardingState"
+            id="field_onboardingState"
+            data-cy="onboardingState"
+            formControlName="onboardingState"
+          />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="kallpapayApp.onboarding.redirectUrl" for="field_redirectUrl">Redirect Url</label>
+          <input
+            type="text"
+            class="form-control"
+            name="redirectUrl"
+            id="field_redirectUrl"
+            data-cy="redirectUrl"
+            formControlName="redirectUrl"
+          />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="kallpapayApp.onboarding.status" for="field_status">Status</label>
+          <input type="text" class="form-control" name="status" id="field_status" data-cy="status" formControlName="status" />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="kallpapayApp.onboarding.tcuUrl" for="field_tcuUrl">Tcu Url</label>
+          <input type="text" class="form-control" name="tcuUrl" id="field_tcuUrl" data-cy="tcuUrl" formControlName="tcuUrl" />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="kallpapayApp.onboarding.accountHolder" for="field_accountHolder">Account Holder</label>
+          <select
+            class="form-control"
+            id="field_accountHolder"
+            data-cy="accountHolder"
+            name="accountHolder"
+            formControlName="accountHolder"
+          >
+            <option [ngValue]="null"></option>
+            <option
+              [ngValue]="
+                accountHolderOption.id === editForm.get('accountHolder')!.value?.id
+                  ? editForm.get('accountHolder')!.value
+                  : accountHolderOption
+              "
+              *ngFor="let accountHolderOption of accountHoldersCollection; trackBy: trackAccountHolderById"
+            >
+              {{ accountHolderOption.id }}
+            </option>
+          </select>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="kallpapayApp.onboarding.oAuthRedirectParameters" for="field_oAuthRedirectParameters"
+            >O Auth Redirect Parameters</label
+          >
+          <select
+            class="form-control"
+            id="field_oAuthRedirectParameters"
+            data-cy="oAuthRedirectParameters"
+            name="oAuthRedirectParameters"
+            formControlName="oAuthRedirectParameters"
+          >
+            <option [ngValue]="null"></option>
+            <option
+              [ngValue]="
+                oAuthRedirectParametersOption.id === editForm.get('oAuthRedirectParameters')!.value?.id
+                  ? editForm.get('oAuthRedirectParameters')!.value
+                  : oAuthRedirectParametersOption
+              "
+              *ngFor="let oAuthRedirectParametersOption of oAuthRedirectParametersCollection; trackBy: trackOAuthRedirectParametersById"
+            >
+              {{ oAuthRedirectParametersOption.id }}
+            </option>
+          </select>
+        </div>
+      </div>
+
+      <div>
+        <button type="button" id="cancel-save" data-cy="entityCreateCancelButton" class="btn btn-secondary" (click)="previousState()">
+          <fa-icon icon="ban"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+        </button>
+
+        <button
+          type="submit"
+          id="save-entity"
+          data-cy="entityCreateSaveButton"
+          [disabled]="editForm.invalid || isSaving"
+          class="btn btn-primary"
+        >
+          <fa-icon icon="save"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+        </button>
+      </div>
+    </form>
+  </div>
+</div>

@@ -1,0 +1,56 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <div *ngIf="standingOrder">
+      <h2 data-cy="standingOrderDetailsHeading"><span jhiTranslate="kallpapayApp.standingOrder.detail.title">Standing Order</span></h2>
+
+      <hr />
+
+      <jhi-alert-error></jhi-alert-error>
+
+      <jhi-alert></jhi-alert>
+
+      <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="global.field.id">ID</span></dt>
+        <dd>
+          <span>{{ standingOrder.id }}</span>
+        </dd>
+        <dt><span jhiTranslate="kallpapayApp.standingOrder.externalId">External Id</span></dt>
+        <dd>
+          <span>{{ standingOrder.externalId }}</span>
+        </dd>
+        <dt><span jhiTranslate="kallpapayApp.standingOrder.reference">Reference</span></dt>
+        <dd>
+          <span>{{ standingOrder.reference }}</span>
+        </dd>
+        <dt><span jhiTranslate="kallpapayApp.standingOrder.label">Label</span></dt>
+        <dd>
+          <span>{{ standingOrder.label }}</span>
+        </dd>
+        <dt><span jhiTranslate="kallpapayApp.standingOrder.status">Status</span></dt>
+        <dd>
+          <span>{{ standingOrder.status }}</span>
+        </dd>
+        <dt><span jhiTranslate="kallpapayApp.standingOrder.amount">Amount</span></dt>
+        <dd>
+          <div *ngIf="standingOrder.amount">
+            <a [routerLink]="['/amount', standingOrder.amount?.id, 'view']">{{ standingOrder.amount?.id }}</a>
+          </div>
+        </dd>
+        <dt><span jhiTranslate="kallpapayApp.standingOrder.sepaBeneficiary">Sepa Beneficiary</span></dt>
+        <dd>
+          <div *ngIf="standingOrder.sepaBeneficiary">
+            <a [routerLink]="['/sepa-beneficiary', standingOrder.sepaBeneficiary?.id, 'view']">{{ standingOrder.sepaBeneficiary?.id }}</a>
+          </div>
+        </dd>
+      </dl>
+
+      <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+        <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+      </button>
+
+      <button type="button" [routerLink]="['/standing-order', standingOrder.id, 'edit']" class="btn btn-primary">
+        <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+      </button>
+    </div>
+  </div>
+</div>

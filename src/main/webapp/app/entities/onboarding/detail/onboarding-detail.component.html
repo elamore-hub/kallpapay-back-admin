@@ -1,0 +1,82 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <div *ngIf="onboarding">
+      <h2 data-cy="onboardingDetailsHeading"><span jhiTranslate="kallpapayApp.onboarding.detail.title">Onboarding</span></h2>
+
+      <hr />
+
+      <jhi-alert-error></jhi-alert-error>
+
+      <jhi-alert></jhi-alert>
+
+      <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="global.field.id">ID</span></dt>
+        <dd>
+          <span>{{ onboarding.id }}</span>
+        </dd>
+        <dt><span jhiTranslate="kallpapayApp.onboarding.externalId">External Id</span></dt>
+        <dd>
+          <span>{{ onboarding.externalId }}</span>
+        </dd>
+        <dt><span jhiTranslate="kallpapayApp.onboarding.accountName">Account Name</span></dt>
+        <dd>
+          <span>{{ onboarding.accountName }}</span>
+        </dd>
+        <dt><span jhiTranslate="kallpapayApp.onboarding.email">Email</span></dt>
+        <dd>
+          <span>{{ onboarding.email }}</span>
+        </dd>
+        <dt><span jhiTranslate="kallpapayApp.onboarding.language">Language</span></dt>
+        <dd>
+          <span>{{ onboarding.language }}</span>
+        </dd>
+        <dt><span jhiTranslate="kallpapayApp.onboarding.accountHolderType">Account Holder Type</span></dt>
+        <dd>
+          <span>{{ onboarding.accountHolderType }}</span>
+        </dd>
+        <dt><span jhiTranslate="kallpapayApp.onboarding.onboardingUrl">Onboarding Url</span></dt>
+        <dd>
+          <span>{{ onboarding.onboardingUrl }}</span>
+        </dd>
+        <dt><span jhiTranslate="kallpapayApp.onboarding.onboardingState">Onboarding State</span></dt>
+        <dd>
+          <span>{{ onboarding.onboardingState }}</span>
+        </dd>
+        <dt><span jhiTranslate="kallpapayApp.onboarding.redirectUrl">Redirect Url</span></dt>
+        <dd>
+          <span>{{ onboarding.redirectUrl }}</span>
+        </dd>
+        <dt><span jhiTranslate="kallpapayApp.onboarding.status">Status</span></dt>
+        <dd>
+          <span>{{ onboarding.status }}</span>
+        </dd>
+        <dt><span jhiTranslate="kallpapayApp.onboarding.tcuUrl">Tcu Url</span></dt>
+        <dd>
+          <span>{{ onboarding.tcuUrl }}</span>
+        </dd>
+        <dt><span jhiTranslate="kallpapayApp.onboarding.accountHolder">Account Holder</span></dt>
+        <dd>
+          <div *ngIf="onboarding.accountHolder">
+            <a [routerLink]="['/account-holder', onboarding.accountHolder?.id, 'view']">{{ onboarding.accountHolder?.id }}</a>
+          </div>
+        </dd>
+        <dt><span jhiTranslate="kallpapayApp.onboarding.oAuthRedirectParameters">O Auth Redirect Parameters</span></dt>
+        <dd>
+          <div *ngIf="onboarding.oAuthRedirectParameters">
+            <a [routerLink]="['/o-auth-redirect-parameters', onboarding.oAuthRedirectParameters?.id, 'view']">{{
+              onboarding.oAuthRedirectParameters?.id
+            }}</a>
+          </div>
+        </dd>
+      </dl>
+
+      <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+        <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+      </button>
+
+      <button type="button" [routerLink]="['/onboarding', onboarding.id, 'edit']" class="btn btn-primary">
+        <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+      </button>
+    </div>
+  </div>
+</div>

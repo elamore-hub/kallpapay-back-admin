@@ -1,0 +1,40 @@
+{
+  "applications": ["kallpapay"],
+  "changelogDate": "20220621092350",
+  "dto": "no",
+  "embedded": false,
+  "entityTableName": "my_cause",
+  "fields": [
+    {
+      "fieldName": "percentage",
+      "fieldType": "Long"
+    }
+  ],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": false,
+  "name": "MyCause",
+  "pagination": "no",
+  "readOnly": false,
+  "relationships": [
+    {
+      "otherEntityName": "cause",
+      "otherEntityRelationshipName": "myCause",
+      "ownerSide": true,
+      "relationshipName": "cause",
+      "relationshipType": "one-to-one"
+    },
+    {
+      "otherEntityName": "donation",
+      "otherEntityRelationshipName": "myCause",
+      "relationshipName": "donation",
+      "relationshipType": "one-to-many"
+    },
+    {
+      "otherEntityName": "portfolio",
+      "otherEntityRelationshipName": "myCause",
+      "relationshipName": "portfolio",
+      "relationshipType": "many-to-one"
+    }
+  ],
+  "service": "no"
+}

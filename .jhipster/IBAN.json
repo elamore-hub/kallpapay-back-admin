@@ -1,0 +1,45 @@
+{
+  "applications": ["kallpapay"],
+  "changelogDate": "20220621092338",
+  "dto": "no",
+  "embedded": false,
+  "entityTableName": "iban",
+  "fields": [
+    {
+      "fieldName": "name",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "iban",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "bic",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "accountOwner",
+      "fieldType": "String"
+    }
+  ],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": false,
+  "name": "IBAN",
+  "pagination": "no",
+  "readOnly": false,
+  "relationships": [
+    {
+      "otherEntityName": "transaction",
+      "otherEntityRelationshipName": "iBAN",
+      "relationshipName": "transaction",
+      "relationshipType": "one-to-many"
+    },
+    {
+      "otherEntityName": "bankAccount",
+      "otherEntityRelationshipName": "iBAN",
+      "relationshipName": "bankAccount",
+      "relationshipType": "many-to-one"
+    }
+  ],
+  "service": "no"
+}

@@ -1,0 +1,77 @@
+{
+  "applications": ["kallpapay"],
+  "changelogDate": "20220621092344",
+  "dto": "no",
+  "embedded": false,
+  "entityTableName": "onboarding",
+  "fields": [
+    {
+      "fieldName": "externalId",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "accountName",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "email",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "language",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "accountHolderType",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "onboardingUrl",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "onboardingState",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "redirectUrl",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "status",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "tcuUrl",
+      "fieldType": "String"
+    }
+  ],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": false,
+  "name": "Onboarding",
+  "pagination": "no",
+  "readOnly": false,
+  "relationships": [
+    {
+      "otherEntityName": "accountHolder",
+      "otherEntityRelationshipName": "onboarding",
+      "ownerSide": true,
+      "relationshipName": "accountHolder",
+      "relationshipType": "one-to-one"
+    },
+    {
+      "otherEntityName": "oAuthRedirectParameters",
+      "otherEntityRelationshipName": "onboarding",
+      "ownerSide": true,
+      "relationshipName": "oAuthRedirectParameters",
+      "relationshipType": "one-to-one"
+    },
+    {
+      "otherEntityName": "supportingDocument",
+      "otherEntityRelationshipName": "onboarding",
+      "relationshipName": "supportingDocument",
+      "relationshipType": "one-to-many"
+    }
+  ],
+  "service": "no"
+}

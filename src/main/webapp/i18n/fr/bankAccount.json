@@ -1,0 +1,34 @@
+{
+  "kallpapayApp": {
+    "bankAccount": {
+      "home": {
+        "title": "BankAccounts",
+        "refreshListLabel": "Actualiser la liste",
+        "createLabel": "Créer un nouveau Bank Account",
+        "createOrEditLabel": "Créer ou éditer un Bank Account",
+        "notFound": "Aucun Bank Account trouvé"
+      },
+      "created": "Un nouveau Bank Account a été créé avec l'identifiant {{ param }}",
+      "updated": "Le Bank Account avec l'identifiant {{ param }} a été mis à jour",
+      "deleted": "Le Bank Account avec l'identifiant {{ param }} a été supprimé",
+      "delete": {
+        "question": "Êtes-vous certain de vouloir supprimer le Bank Account {{ id }} ?"
+      },
+      "detail": {
+        "title": "Bank Account"
+      },
+      "id": "ID",
+      "externalId": "External Id",
+      "number": "Number",
+      "name": "Name",
+      "currency": "Currency",
+      "status": "Status",
+      "language": "Language",
+      "balances": "Balances",
+      "accountMembership": "Account Membership",
+      "iBAN": "I BAN",
+      "transaction": "Transaction",
+      "accountHolder": "Account Holder"
+    }
+  }
+}

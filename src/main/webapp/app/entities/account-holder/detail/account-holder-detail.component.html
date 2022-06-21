@@ -1,0 +1,54 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <div *ngIf="accountHolder">
+      <h2 data-cy="accountHolderDetailsHeading"><span jhiTranslate="kallpapayApp.accountHolder.detail.title">Account Holder</span></h2>
+
+      <hr />
+
+      <jhi-alert-error></jhi-alert-error>
+
+      <jhi-alert></jhi-alert>
+
+      <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="global.field.id">ID</span></dt>
+        <dd>
+          <span>{{ accountHolder.id }}</span>
+        </dd>
+        <dt><span jhiTranslate="kallpapayApp.accountHolder.externalId">External Id</span></dt>
+        <dd>
+          <span>{{ accountHolder.externalId }}</span>
+        </dd>
+        <dt><span jhiTranslate="kallpapayApp.accountHolder.verificationStatus">Verification Status</span></dt>
+        <dd>
+          <span>{{ accountHolder.verificationStatus }}</span>
+        </dd>
+        <dt><span jhiTranslate="kallpapayApp.accountHolder.statusInfo">Status Info</span></dt>
+        <dd>
+          <span>{{ accountHolder.statusInfo }}</span>
+        </dd>
+        <dt><span jhiTranslate="kallpapayApp.accountHolder.accountHolderInfo">Account Holder Info</span></dt>
+        <dd>
+          <div *ngIf="accountHolder.accountHolderInfo">
+            <a [routerLink]="['/account-holder-info', accountHolder.accountHolderInfo?.id, 'view']">{{
+              accountHolder.accountHolderInfo?.id
+            }}</a>
+          </div>
+        </dd>
+        <dt><span jhiTranslate="kallpapayApp.accountHolder.residencyAddress">Residency Address</span></dt>
+        <dd>
+          <div *ngIf="accountHolder.residencyAddress">
+            <a [routerLink]="['/address-info', accountHolder.residencyAddress?.id, 'view']">{{ accountHolder.residencyAddress?.id }}</a>
+          </div>
+        </dd>
+      </dl>
+
+      <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+        <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+      </button>
+
+      <button type="button" [routerLink]="['/account-holder', accountHolder.id, 'edit']" class="btn btn-primary">
+        <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+      </button>
+    </div>
+  </div>
+</div>

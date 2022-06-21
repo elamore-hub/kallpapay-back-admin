@@ -1,0 +1,24 @@
+{
+  "applications": ["kallpapay"],
+  "changelogDate": "20220621092330",
+  "dto": "no",
+  "embedded": false,
+  "entityTableName": "account_holder_info",
+  "fields": [
+    {
+      "fieldName": "type",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "name",
+      "fieldType": "String"
+    }
+  ],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": false,
+  "name": "AccountHolderInfo",
+  "pagination": "no",
+  "readOnly": false,
+  "relationships": [],
+  "service": "no"
+}

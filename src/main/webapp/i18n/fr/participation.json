@@ -1,0 +1,26 @@
+{
+  "kallpapayApp": {
+    "participation": {
+      "home": {
+        "title": "Participations",
+        "refreshListLabel": "Actualiser la liste",
+        "createLabel": "Créer un nouveau Participation",
+        "createOrEditLabel": "Créer ou éditer un Participation",
+        "notFound": "Aucun Participation trouvé"
+      },
+      "created": "Un nouveau Participation a été créé avec l'identifiant {{ param }}",
+      "updated": "Le Participation avec l'identifiant {{ param }} a été mis à jour",
+      "deleted": "Le Participation avec l'identifiant {{ param }} a été supprimé",
+      "delete": {
+        "question": "Êtes-vous certain de vouloir supprimer le Participation {{ id }} ?"
+      },
+      "detail": {
+        "title": "Participation"
+      },
+      "id": "ID",
+      "creationDate": "Creation Date",
+      "amount": "Amount",
+      "portfolio": "Portfolio"
+    }
+  }
+}

@@ -1,0 +1,100 @@
+<div>
+  <h2 id="page-heading" data-cy="AccountBalancesHeading">
+    <span jhiTranslate="kallpapayApp.accountBalances.home.title">Account Balances</span>
+
+    <div class="d-flex justify-content-end">
+      <button class="btn btn-info me-2" (click)="loadAll()" [disabled]="isLoading">
+        <fa-icon icon="sync" [spin]="isLoading"></fa-icon>
+        <span jhiTranslate="kallpapayApp.accountBalances.home.refreshListLabel">Refresh List</span>
+      </button>
+
+      <button
+        id="jh-create-entity"
+        data-cy="entityCreateButton"
+        class="btn btn-primary jh-create-entity create-account-balances"
+        [routerLink]="['/account-balances/new']"
+      >
+        <fa-icon icon="plus"></fa-icon>
+        <span jhiTranslate="kallpapayApp.accountBalances.home.createLabel"> Create a new Account Balances </span>
+      </button>
+    </div>
+  </h2>
+
+  <jhi-alert-error></jhi-alert-error>
+
+  <jhi-alert></jhi-alert>
+
+  <div class="alert alert-warning" id="no-result" *ngIf="accountBalances?.length === 0">
+    <span jhiTranslate="kallpapayApp.accountBalances.home.notFound">No accountBalances found</span>
+  </div>
+
+  <div class="table-responsive" id="entities" *ngIf="accountBalances && accountBalances.length > 0">
+    <table class="table table-striped" aria-describedby="page-heading">
+      <thead>
+        <tr>
+          <th scope="col"><span jhiTranslate="global.field.id">ID</span></th>
+          <th scope="col"><span jhiTranslate="kallpapayApp.accountBalances.available">Available</span></th>
+          <th scope="col"><span jhiTranslate="kallpapayApp.accountBalances.booked">Booked</span></th>
+          <th scope="col"><span jhiTranslate="kallpapayApp.accountBalances.pending">Pending</span></th>
+          <th scope="col"><span jhiTranslate="kallpapayApp.accountBalances.reserved">Reserved</span></th>
+          <th scope="col"></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let accountBalances of accountBalances; trackBy: trackId" data-cy="entityTable">
+          <td>
+            <a [routerLink]="['/account-balances', accountBalances.id, 'view']">{{ accountBalances.id }}</a>
+          </td>
+          <td>
+            <div *ngIf="accountBalances.available">
+              <a [routerLink]="['/amount', accountBalances.available?.id, 'view']">{{ accountBalances.available?.id }}</a>
+            </div>
+          </td>
+          <td>
+            <div *ngIf="accountBalances.booked">
+              <a [routerLink]="['/amount', accountBalances.booked?.id, 'view']">{{ accountBalances.booked?.id }}</a>
+            </div>
+          </td>
+          <td>
+            <div *ngIf="accountBalances.pending">
+              <a [routerLink]="['/amount', accountBalances.pending?.id, 'view']">{{ accountBalances.pending?.id }}</a>
+            </div>
+          </td>
+          <td>
+            <div *ngIf="accountBalances.reserved">
+              <a [routerLink]="['/amount', accountBalances.reserved?.id, 'view']">{{ accountBalances.reserved?.id }}</a>
+            </div>
+          </td>
+          <td class="text-end">
+            <div class="btn-group">
+              <button
+                type="submit"
+                [routerLink]="['/account-balances', accountBalances.id, 'view']"
+                class="btn btn-info btn-sm"
+                data-cy="entityDetailsButton"
+              >
+                <fa-icon icon="eye"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+              </button>
+
+              <button
+                type="submit"
+                [routerLink]="['/account-balances', accountBalances.id, 'edit']"
+                class="btn btn-primary btn-sm"
+                data-cy="entityEditButton"
+              >
+                <fa-icon icon="pencil-alt"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+              </button>
+
+              <button type="submit" (click)="delete(accountBalances)" class="btn btn-danger btn-sm" data-cy="entityDeleteButton">
+                <fa-icon icon="times"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+              </button>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

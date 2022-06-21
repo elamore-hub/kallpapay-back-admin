@@ -1,0 +1,29 @@
+{
+  "kallpapayApp": {
+    "supportingDocument": {
+      "home": {
+        "title": "SupportingDocuments",
+        "refreshListLabel": "Actualiser la liste",
+        "createLabel": "Créer un nouveau Supporting Document",
+        "createOrEditLabel": "Créer ou éditer un Supporting Document",
+        "notFound": "Aucun Supporting Document trouvé"
+      },
+      "created": "Un nouveau Supporting Document a été créé avec l'identifiant {{ param }}",
+      "updated": "Le Supporting Document avec l'identifiant {{ param }} a été mis à jour",
+      "deleted": "Le Supporting Document avec l'identifiant {{ param }} a été supprimé",
+      "delete": {
+        "question": "Êtes-vous certain de vouloir supprimer le Supporting Document {{ id }} ?"
+      },
+      "detail": {
+        "title": "Supporting Document"
+      },
+      "id": "ID",
+      "externalId": "External Id",
+      "status": "Status",
+      "supportingDocumentType": "Supporting Document Type",
+      "supportingDocumentPurpose": "Supporting Document Purpose",
+      "accountHolder": "Account Holder",
+      "onboarding": "Onboarding"
+    }
+  }
+}

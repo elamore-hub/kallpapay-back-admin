@@ -1,0 +1,62 @@
+{
+  "applications": ["kallpapay"],
+  "changelogDate": "20220621092347",
+  "dto": "no",
+  "embedded": false,
+  "entityTableName": "portfolio",
+  "fields": [
+    {
+      "fieldName": "limitAmount",
+      "fieldType": "Long"
+    },
+    {
+      "fieldName": "amount",
+      "fieldType": "Long"
+    },
+    {
+      "fieldName": "limitPercentage",
+      "fieldType": "Long"
+    },
+    {
+      "fieldName": "percentage",
+      "fieldType": "Long"
+    },
+    {
+      "fieldName": "method",
+      "fieldType": "Method",
+      "fieldValues": "PERCENTAGE,FIX"
+    }
+  ],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": false,
+  "name": "Portfolio",
+  "pagination": "no",
+  "readOnly": false,
+  "relationships": [
+    {
+      "otherEntityName": "category",
+      "otherEntityRelationshipName": "portfolio",
+      "relationshipName": "category",
+      "relationshipType": "one-to-many"
+    },
+    {
+      "otherEntityName": "participation",
+      "otherEntityRelationshipName": "portfolio",
+      "relationshipName": "participation",
+      "relationshipType": "one-to-many"
+    },
+    {
+      "otherEntityName": "myCause",
+      "otherEntityRelationshipName": "portfolio",
+      "relationshipName": "myCause",
+      "relationshipType": "one-to-many"
+    },
+    {
+      "otherEntityName": "card",
+      "otherEntityRelationshipName": "portfolio",
+      "relationshipName": "card",
+      "relationshipType": "many-to-one"
+    }
+  ],
+  "service": "no"
+}

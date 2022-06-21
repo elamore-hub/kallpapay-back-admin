@@ -1,0 +1,98 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+      <h2 id="jhi-portfolio-heading" data-cy="PortfolioCreateUpdateHeading" jhiTranslate="kallpapayApp.portfolio.home.createOrEditLabel">
+        Create or edit a Portfolio
+      </h2>
+
+      <div>
+        <jhi-alert-error></jhi-alert-error>
+
+        <div class="row mb-3" [hidden]="editForm.get('id')!.value == null">
+          <label class="form-label" jhiTranslate="global.field.id" for="field_id">ID</label>
+          <input type="number" class="form-control" name="id" id="field_id" data-cy="id" formControlName="id" [readonly]="true" />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="kallpapayApp.portfolio.limitAmount" for="field_limitAmount">Limit Amount</label>
+          <input
+            type="number"
+            class="form-control"
+            name="limitAmount"
+            id="field_limitAmount"
+            data-cy="limitAmount"
+            formControlName="limitAmount"
+          />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="kallpapayApp.portfolio.amount" for="field_amount">Amount</label>
+          <input type="number" class="form-control" name="amount" id="field_amount" data-cy="amount" formControlName="amount" />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="kallpapayApp.portfolio.limitPercentage" for="field_limitPercentage"
+            >Limit Percentage</label
+          >
+          <input
+            type="number"
+            class="form-control"
+            name="limitPercentage"
+            id="field_limitPercentage"
+            data-cy="limitPercentage"
+            formControlName="limitPercentage"
+          />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="kallpapayApp.portfolio.percentage" for="field_percentage">Percentage</label>
+          <input
+            type="number"
+            class="form-control"
+            name="percentage"
+            id="field_percentage"
+            data-cy="percentage"
+            formControlName="percentage"
+          />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="kallpapayApp.portfolio.method" for="field_method">Method</label>
+          <select class="form-control" name="method" formControlName="method" id="field_method" data-cy="method">
+            <option [ngValue]="null">{{ 'kallpapayApp.Method.null' | translate }}</option>
+            <option *ngFor="let method of methodValues" [value]="method">{{ 'kallpapayApp.Method.' + method | translate }}</option>
+          </select>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="kallpapayApp.portfolio.card" for="field_card">Card</label>
+          <select class="form-control" id="field_card" data-cy="card" name="card" formControlName="card">
+            <option [ngValue]="null"></option>
+            <option
+              [ngValue]="cardOption.id === editForm.get('card')!.value?.id ? editForm.get('card')!.value : cardOption"
+              *ngFor="let cardOption of cardsSharedCollection; trackBy: trackCardById"
+            >
+              {{ cardOption.id }}
+            </option>
+          </select>
+        </div>
+      </div>
+
+      <div>
+        <button type="button" id="cancel-save" data-cy="entityCreateCancelButton" class="btn btn-secondary" (click)="previousState()">
+          <fa-icon icon="ban"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+        </button>
+
+        <button
+          type="submit"
+          id="save-entity"
+          data-cy="entityCreateSaveButton"
+          [disabled]="editForm.invalid || isSaving"
+          class="btn btn-primary"
+        >
+          <fa-icon icon="save"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+        </button>
+      </div>
+    </form>
+  </div>
+</div>

@@ -1,0 +1,27 @@
+{
+  "kallpapayApp": {
+    "accountBalances": {
+      "home": {
+        "title": "AccountBalances",
+        "refreshListLabel": "Actualiser la liste",
+        "createLabel": "Créer un nouveau Account Balances",
+        "createOrEditLabel": "Créer ou éditer un Account Balances",
+        "notFound": "Aucun Account Balances trouvé"
+      },
+      "created": "Un nouveau Account Balances a été créé avec l'identifiant {{ param }}",
+      "updated": "Le Account Balances avec l'identifiant {{ param }} a été mis à jour",
+      "deleted": "Le Account Balances avec l'identifiant {{ param }} a été supprimé",
+      "delete": {
+        "question": "Êtes-vous certain de vouloir supprimer le Account Balances {{ id }} ?"
+      },
+      "detail": {
+        "title": "Account Balances"
+      },
+      "id": "ID",
+      "available": "Available",
+      "booked": "Booked",
+      "pending": "Pending",
+      "reserved": "Reserved"
+    }
+  }
+}

@@ -1,0 +1,96 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <div *ngIf="transaction">
+      <h2 data-cy="transactionDetailsHeading"><span jhiTranslate="kallpapayApp.transaction.detail.title">Transaction</span></h2>
+
+      <hr />
+
+      <jhi-alert-error></jhi-alert-error>
+
+      <jhi-alert></jhi-alert>
+
+      <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="global.field.id">ID</span></dt>
+        <dd>
+          <span>{{ transaction.id }}</span>
+        </dd>
+        <dt><span jhiTranslate="kallpapayApp.transaction.externalId">External Id</span></dt>
+        <dd>
+          <span>{{ transaction.externalId }}</span>
+        </dd>
+        <dt><span jhiTranslate="kallpapayApp.transaction.reference">Reference</span></dt>
+        <dd>
+          <span>{{ transaction.reference }}</span>
+        </dd>
+        <dt><span jhiTranslate="kallpapayApp.transaction.paymentMethodIdentifier">Payment Method Identifier</span></dt>
+        <dd>
+          <span>{{ transaction.paymentMethodIdentifier }}</span>
+        </dd>
+        <dt><span jhiTranslate="kallpapayApp.transaction.side">Side</span></dt>
+        <dd>
+          <span>{{ transaction.side }}</span>
+        </dd>
+        <dt><span jhiTranslate="kallpapayApp.transaction.type">Type</span></dt>
+        <dd>
+          <span>{{ transaction.type }}</span>
+        </dd>
+        <dt><span jhiTranslate="kallpapayApp.transaction.label">Label</span></dt>
+        <dd>
+          <span>{{ transaction.label }}</span>
+        </dd>
+        <dt><span jhiTranslate="kallpapayApp.transaction.status">Status</span></dt>
+        <dd>
+          <span>{{ transaction.status }}</span>
+        </dd>
+        <dt><span jhiTranslate="kallpapayApp.transaction.paymentId">Payment Id</span></dt>
+        <dd>
+          <span>{{ transaction.paymentId }}</span>
+        </dd>
+        <dt><span jhiTranslate="kallpapayApp.transaction.counterparty">Counterparty</span></dt>
+        <dd>
+          <span>{{ transaction.counterparty }}</span>
+        </dd>
+        <dt><span jhiTranslate="kallpapayApp.transaction.paymentProduct">Payment Product</span></dt>
+        <dd>
+          <span>{{ transaction.paymentProduct }}</span>
+        </dd>
+        <dt><span jhiTranslate="kallpapayApp.transaction.externalReference">External Reference</span></dt>
+        <dd>
+          <span>{{ transaction.externalReference }}</span>
+        </dd>
+        <dt><span jhiTranslate="kallpapayApp.transaction.amount">Amount</span></dt>
+        <dd>
+          <div *ngIf="transaction.amount">
+            <a [routerLink]="['/amount', transaction.amount?.id, 'view']">{{ transaction.amount?.id }}</a>
+          </div>
+        </dd>
+        <dt><span jhiTranslate="kallpapayApp.transaction.bankAccount">Bank Account</span></dt>
+        <dd>
+          <div *ngIf="transaction.bankAccount">
+            <a [routerLink]="['/bank-account', transaction.bankAccount?.id, 'view']">{{ transaction.bankAccount?.id }}</a>
+          </div>
+        </dd>
+        <dt><span jhiTranslate="kallpapayApp.transaction.iBAN">I BAN</span></dt>
+        <dd>
+          <div *ngIf="transaction.iBAN">
+            <a [routerLink]="['/iban', transaction.iBAN?.id, 'view']">{{ transaction.iBAN?.id }}</a>
+          </div>
+        </dd>
+        <dt><span jhiTranslate="kallpapayApp.transaction.payment">Payment</span></dt>
+        <dd>
+          <div *ngIf="transaction.payment">
+            <a [routerLink]="['/payment', transaction.payment?.id, 'view']">{{ transaction.payment?.id }}</a>
+          </div>
+        </dd>
+      </dl>
+
+      <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+        <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+      </button>
+
+      <button type="button" [routerLink]="['/transaction', transaction.id, 'edit']" class="btn btn-primary">
+        <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+      </button>
+    </div>
+  </div>
+</div>
