@@ -1,0 +1,236 @@
+//https://docs.swan.io/concept/overview
+application {
+  config {
+    baseName kallpapay,
+    applicationType monolith,
+    packageName com.kallpapay,
+    authenticationType jwt,
+    prodDatabaseType mysql,
+    clientFramework angular
+  }
+  entities *
+}
+
+//Banking Entities
+
+//entity User {
+//	externalId String,
+//  firstName String,
+//  lastName String,
+//  mobilePhoneNumber String,
+//  birthDate LocalDate,
+//  nationality String
+//}
+
+entity AccountHolderInfo {
+  type String,
+  name String
+}
+
+entity AddressInfo {
+	name String
+}
+
+entity AccountHolder {
+  externalId String,
+  verificationStatus String,
+  statusInfo String
+}
+
+
+entity AccountMembership {
+  externalId String,
+  email String,
+  status String
+}
+
+entity Amount {
+  currency String,
+  value Long
+}
+
+entity BankAccount {
+  externalId String,
+  number String
+  name String,
+  currency String,
+  status String,
+  language String,
+}
+
+entity AccountBalances {
+
+}
+
+entity Card {
+	externalId String,
+  type String,
+  mainCurrency String,
+  cardDesignUrl String,
+  cardUrl String,
+  status String,
+  expiryDate LocalDate,
+  name String
+}
+
+entity IBAN {
+	name String,
+  iban String,
+  bic String,
+  accountOwner String
+}
+
+entity Payment {
+  externalId String,
+  status String,
+}
+entity StandingOrder {
+  externalId String,
+  reference String,
+  label String,
+  status String
+}
+entity SEPABeneficiary {
+  externalId String,
+  name String,
+  isMyOwnIban Boolean,
+  maskedIBAN String
+}
+entity Address {
+  addressLine1 String,
+  addressLine2 String,
+  city String,
+  postalCode String,
+  state String,
+  country String
+}
+
+entity Transaction {
+  externalId String,
+  reference String,
+  paymentMethodIdentifier String,
+  side String,
+  type String
+  label String,
+  status String,
+  paymentId String,
+  counterparty String,
+  paymentProduct String,
+  externalReference String 
+}
+
+entity Onboarding {
+  externalId String,
+  accountName String,
+  email String,
+  language String,
+  accountHolderType String,
+  onboardingUrl String,
+  onboardingState String,
+  redirectUrl String,
+  status String,
+  tcuUrl String
+}
+entity OAuthRedirectParameters {
+  state String,
+  redirectUrl String
+}
+
+entity SupportingDocument {
+	externalId String,
+  status String,
+  supportingDocumentType String,
+  supportingDocumentPurpose String
+}
+
+//Money Pot Entities
+
+enum Method {
+	PERCENTAGE,
+  FIX
+}
+
+entity Portfolio {
+  limitAmount Long,
+  amount Long,
+  limitPercentage Long,
+  percentage Long,
+  method Method,
+}
+
+entity Category {
+  name String,
+  description String,
+  logo ImageBlob,
+}
+
+entity Cause {
+  name String,
+  description String,
+  logo ImageBlob,
+}
+
+entity MyCause {
+	Percentage Long,
+}
+
+entity Donation {
+}
+
+entity Participation {
+	 creationDate LocalDate,
+}
+
+
+relationship OneToMany {
+  //Banking Relations
+  //User to AccountMembership,
+  AccountHolder to BankAccount,
+  AccountHolder to SupportingDocument,
+  AccountMembership to Card,
+  BankAccount to AccountMembership,
+  BankAccount to IBAN,
+  BankAccount to Transaction,
+  IBAN to Transaction,
+  Payment to Transaction,
+
+  Onboarding to SupportingDocument,
+
+  
+  //Money Pot Relations
+  Card to Portfolio,
+  Portfolio to Category,
+  Portfolio to Participation,
+  Portfolio to MyCause,
+  MyCause to Donation,
+  Cause to Category
+}
+
+relationship OneToOne {
+	//Banking Relations
+	Onboarding to AccountHolder,
+    AccountHolder{accountHolderInfo} to AccountHolderInfo,
+    AccountHolder{residencyAddress} to AddressInfo,
+    
+    BankAccount{balances} to AccountBalances,
+    
+    AccountBalances{available} to Amount,
+    AccountBalances{booked} to Amount,
+    AccountBalances{pending} to Amount,
+    AccountBalances{reserved} to Amount,
+    
+    Payment{standingOrder} to StandingOrder,
+    
+    Transaction{amount} to Amount,
+  	SEPABeneficiary{address} to Address,
+    Payment{standingOrder} to StandingOrder,
+  	StandingOrder{amount} to Amount,
+  	StandingOrder{sepaBeneficiary} to SEPABeneficiary,
+
+    Onboarding{oAuthRedirectParameters} to OAuthRedirectParameters,
+    
+    Participation{amount} to Amount
+    //Money Pot Relations
+    MyCause to Cause
+}
+  
